@@ -1,4 +1,4 @@
-package com.israluci.ch01fundamentalstructures;
+package com.israluci.ch03fundamentalstructures.ex01;
 
 import java.util.*;
 

@@ -1,0 +1,17 @@
+Exercise specification:
+***********************
+
+Write a program that takes a string command line argument and prints out the string in reverse order.
+
+For example, if your program gets argument abc123 it should print out.
+
+You gave me input: abc123
+The reverse input is: 321cba
+
+
+Feedback:
+*********
+Well done and congratulations on successfully completing exercise 01.
+
+I really like the way you used an existing StringBuilder class. That is one of the strengths of Java, namely the abundance of
+libraries that are well tested and can be reused.

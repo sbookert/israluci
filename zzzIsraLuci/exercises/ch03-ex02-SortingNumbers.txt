@@ -1,0 +1,28 @@
+Exercise specification:
+********************************************************************************************
+
+Write a program that produces the following command line prompt and operations:
+
+
+Hello, insert some numbers separated by commas:
+2,6,7,3,1
+
+Thanks! 
+
+Here is are your numbers in ascending order:
+1,2,3,6,7
+
+Here is are your numbers in descending order:
+1,2,3,6,7
+
+
+Put your solution in a package named com.israluci.ch03fundamentalstructures.ex02 and skype me 
+the file or files when you are done.
+
+This is a little bit harder than your last exercise, and it will get harder and harder. Good luck!
+
+
+
+Feedback:
+********************************************************************************************
+

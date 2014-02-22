@@ -1,7 +1,10 @@
 Exercise specification:
 ********************************************************************************************
 
+
+
 Write a program that produces the following command line prompt and operations:
+
 
 
 Hello, insert some numbers separated by commas:
@@ -14,6 +17,7 @@ Here is are your numbers in ascending order:
 
 Here is are your numbers in descending order:
 1,2,3,6,7
+
 
 
 Put your solution in a package named com.israluci.ch03fundamentalstructures.ex02 and skype me 

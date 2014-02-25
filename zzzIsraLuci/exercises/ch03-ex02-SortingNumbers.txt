@@ -53,3 +53,7 @@ Can you fix the program so you don't have extra zeros in the first program and y
 more than 5 numbers? If you'd like me to give you a hint let me know.
 
 Please name your new solution OrderNumbers02.java
+
+HINT 1:
+first read the input as one string, then break it up into pieces using the split method like this: "1,9,4".split(",");
+then convert to int then do the sorting.

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class OrderNumbers01 {
 
 	/**
-	 * @param args
+	 * @param args 
 	 */
 	public static void main(String[] args) {
 		Scanner s1 = new Scanner(System.in);

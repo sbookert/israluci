@@ -30,3 +30,26 @@ This is a little bit harder than your last exercise, and it will get harder and 
 Feedback:
 ********************************************************************************************
 
+First of all I really like your solution. However you need to find a different strategy for reading in the 
+input so that it doesn't generate unexpected results.
+
+Here is 1 output:
+Hello, insert some numbers separated by commas:
+2,3,5
+Thanks!
+Here is are your numbers in ascending order:
+0,0,2,3,5,
+Here is are your numbers in descending order:
+5,3,2,0,0,
+
+Here is another output:
+Hello, insert some numbers separated by commas:
+1,4,7,8,5,2,6
+Thanks!
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5
+	at com.israluci.ch03fundamentalstructures.ex02.OrderNumbers.main(OrderNumbers.java:25)
+	
+Can you fix the program so you don't have extra zeros in the first program and you don't get an exception when entering 
+more than 5 numbers? If you'd like me to give you a hint let me know.
+
+Please name your new solution OrderNumbers02.java

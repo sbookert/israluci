@@ -1,0 +1,56 @@
+Exercise specification:
+********************************************************************************************
+
+
+
+One of the most important things in software is software reuse. So now you will have to take
+parts of the your previous solution in order to add functionality. 
+
+Write a program that produces exactly the command line prompt and operations as 
+described below. If the user enters YES repeat the prompts, else say "OK, bye!"
+
+
+Hello, insert some numbers separated by commas:
+2,6,7,3,1
+
+Thanks! 
+
+Here is/are your number(s) in ascending order:
+1,2,3,6,7
+Here is/are your number(s) in descending order:
+7,6,3,2,1
+Total number(s): 5
+The average is: 3.80
+The median is: 3.00
+
+Would you like to enter a new list? (Enter YES or NO)
+YES
+
+Hello, insert some numbers separated by commas:
+7,3
+
+Thanks! 
+
+Here is/are your number(s) in ascending order:
+3,7
+Here is/are your number(s) in descending order:
+7,3
+Total number(s) entered: 2
+The average is: 5.00
+The median is: 5.00
+
+Would you like to enter a new list? (Enter YES or NO)
+NO
+
+Bye!
+
+
+Put your solution in a package named com.israluci.ch03fundamentalstructures.ex03 and skype me 
+only the .java file or files when you are done.
+
+This is a little bit harder than your last exercise, and it will get harder and harder. Good luck!
+
+
+
+Feedback 1:
+********************************************************************************************

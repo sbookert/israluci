@@ -27,7 +27,7 @@ This is a little bit harder than your last exercise, and it will get harder and 
 
 
 
-Feedback:
+Feedback 1:
 ********************************************************************************************
 
 First of all I really like your solution. However you need to find a different strategy for reading in the 
@@ -57,3 +57,18 @@ Please name your new solution OrderNumbers02.java
 HINT 1:
 first read the input as one string, then break it up into pieces using the split method like this: "1,9,4".split(",");
 then convert to int then do the sorting.
+
+Feedback 2:
+********************************************************************************************
+
+This solution is very nice! I really like the way you used comments. It's very useful and important when you write code.
+
+Going forward I'd like you become more detail oriented. This is important because most of the time programmers 
+make errors because they aren't paying attention and they forget something that they had thought of. What this 
+means for you is that you should make the output exactly as the exercise asks. 
+
+For example:
+- If there are spaces between lines make sure to add them in your solution. 
+- If there is a comma at the end of the list in your solution but not in the instructions make sure to remove it.
+
+

@@ -7,7 +7,7 @@ One of the most important things in software is software reuse. So now you will 
 parts of the your previous solution in order to add functionality. 
 
 Write a program that produces exactly the command line prompt and operations as 
-described below. If the user enters YES repeat the prompts, else say "OK, bye!"
+described below. If the user enters YES repeat the prompts, else say "Bye!"
 
 
 Hello, insert some numbers separated by commas:

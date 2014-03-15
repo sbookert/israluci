@@ -5,15 +5,15 @@ Object oriented programming is the key concept behind the Java programming langu
 exercise you'll practice making classes.
 
 Write a program that takes a list of dates and calculates how many days are between 
-neighboring dates. Create a class called DateComparor which has a two methods. The class
-should have two methods with the signatures:
+neighboring dates. Create a class called DateComparor which has a several methods. The class
+should have methods with the signatures:
 
 public int computeDaysBetweenDates(Date first, Date second);
 public int computeMonthsBetweenDates(Date first, Date second);
 public int computeYearsBetweenDates(Date first, Date second);
 public static int getNumberOfCallsToCompute();
 
-Use class DateComparor to generate the following output:
+Use class DateComparor in your program to generate the following output:
 
 
 Hello, insert 2 or more dates separated by commas:

@@ -1,0 +1,40 @@
+Exercise specification:
+********************************************************************************************
+
+Object oriented programming is the key concept behind the Java programming language. In this
+exercise you'll practice making classes.
+
+Write a program that takes a list of dates and calculates how many days are between 
+neighboring dates. Create a class called DateComparor which has a two methods. The class
+should have two methods with the signatures:
+
+public int computeDaysBetweenDates(Date first, Date second);
+public int computeMonthsBetweenDates(Date first, Date second);
+public int computeYearsBetweenDates(Date first, Date second);
+public static int getNumberOfCallsToCompute();
+
+Use class DateComparor to generate the following output:
+
+
+Hello, insert 2 or more dates separated by commas:
+01/06/1980,05/30/1989,12/30/1989
+
+Thanks! 
+
+There is/are the number of day(s) between date 01/06/1980 and 05/30/1989: 3432
+There is/are the number of months(s) between date 01/06/1980 and 05/30/1989: 112
+There is/are the number of year(s) between date 01/06/1980 and 05/30/1989: 9
+
+There is/are the number of day(s) between date 05/30/1989 and 12/30/1989: 214
+There is/are the number of months(s) between date 05/30/1989 and 12/30/1989: 7
+There is/are the number of year(s) between date 05/30/1989 and 12/30/1989: 0
+
+Bye!
+
+
+Put your solution in a package named com.israluci.ch04objectsandclasses.ex01 and skype me 
+only the .java file or files when you are done.
+
+Feedback 1:
+********************************************************************************************
+

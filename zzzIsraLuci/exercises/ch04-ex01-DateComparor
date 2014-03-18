@@ -29,6 +29,8 @@ There is/are the number of day(s) between date 05/30/1989 and 12/30/1989: 214
 There is/are the number of months(s) between date 05/30/1989 and 12/30/1989: 7
 There is/are the number of year(s) between date 05/30/1989 and 12/30/1989: 0
 
+Class DateComparor received 6 calls to the compute methods.
+
 Bye!
 
 

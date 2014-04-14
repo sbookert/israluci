@@ -99,8 +99,8 @@ class DateComparor
         return daysBetween;
     }
 
-
-    public int computeMonthsBetweenDates( Date first, Date second )
+/*
+    public int computeMonthsBetweenDates2( Date first, Date second )
     {
         GregorianCalendar calendar = new GregorianCalendar();
 
@@ -121,6 +121,32 @@ class DateComparor
 
         count++; // getNumberOfCallsToCompute();
         return diff;
+    } */
+    
+    public int computeMonthsBetweenDates( Date first, Date second )
+    {
+    	GregorianCalendar date = new GregorianCalendar();
+        date.setTime( first );
+
+        GregorianCalendar date2 = new GregorianCalendar();
+        date2.setTime( second );
+
+        int numOfMonths = 0;
+        if (date.before( date2 )){
+	        while ( date.before( date2 ) ) {	        	
+	        	date.add( Calendar.MONTH, 1 );
+	            //System.out.println(numOfMonths++);
+	        	numOfMonths++;
+	        }
+        }else{
+	        while ( date2.before( date ) ) {	        	
+	            date2.add( Calendar.MONTH, 1 );
+	            //System.out.println(numOfMonths++);
+	            numOfMonths++;
+	        }
+        }
+        count++;
+        return numOfMonths;
     }
 
 

@@ -29,7 +29,7 @@ public class DateComparorTest
         Date[] datesEntered = getDatesFromInput( datesAsStrings );
         
         
-        //calculate an desplay the number of days, months, and years
+        //calculate and display the number of days, months, and years
         int numOfDays = 0, numOfMonths = 0, numOfYears = 0, j = 1;
         DateComparor dateComp = new DateComparor();
         for ( int i = 0; i < datesEntered.length - 1; i++, j++ ) 

@@ -1,0 +1,45 @@
+Exercise specification:
+********************************************************************************************
+
+Organizing code is an important art in software engineering. The code which you wrote in 
+your previous example could have been even better when it organized a little more.
+In this exercise you'll practice analyzing code so that you can organize your code 
+better in the future.
+
+Part 1. 
+Compare your solution from com.israluci.ch04objectsandclasses.ex01.DateComparorTest.java with
+my solution in com.israluci.ch04objectsandclasses.ex01.vlad.DateComparorTest.java
+
+Write what the differences are in file:
+com/israluci/ch04objectsandclasses/ex02/Part1Analysis.txt
+
+Part 2.
+Write a program that uses your DateComparator class and my DateComparator class. It should
+compare how long it took for each method to execute. The output should look like this:
+
+
+Testing DateComparator classes with dates: 01/06/100,01/06/190000
+
+The output below is for class: com.israluci.ch04objectsandclasses.ex01.vlad.DateComparor
+Method computeDaysBetweenDates was called. It ran for X minutes Y seconds Z milliseconds and returned: 69359552
+Method computeMonthsBetweenDates was called. It executed for X minutes Y seconds Z milliseconds and returned: 2278800
+Method computeYearsBetweenDates was called. It executed for X minutes Y seconds Z milliseconds and returned: 189900
+
+The output below is for class: com.israluci.ch04objectsandclasses.ex01.DateComparor
+Method computeDaysBetweenDates was called. It ran for X minutes Y seconds Z milliseconds and returned: 69359552
+Method computeMonthsBetweenDates was called. It executed for X minutes Y seconds Z milliseconds and returned: 2278800
+Method computeYearsBetweenDates was called. It executed for X minutes Y seconds Z milliseconds and returned: 189900
+
+Bye!
+
+
+Put your code solution in a package named com.israluci.ch04objectsandclasses.ex02 and then answer the question in
+com/israluci/ch04objectsandclasses/ex02/Part2Analysis.txt
+
+Now you have access to commit to git so please commit the code in repository https://github.com/sbookert/israluci
+
+Enjoy!
+
+Feedback 1:
+********************************************************************************************
+

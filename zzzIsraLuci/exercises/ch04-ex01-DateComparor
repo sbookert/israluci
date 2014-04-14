@@ -40,3 +40,16 @@ only the .java file or files when you are done.
 Feedback 1:
 ********************************************************************************************
 
+Your solution was good. It solved the problem and it followed almost all instructions. 
+You used the static field correctly and I'll make sure to create some more exercises 
+where you can practice using it.
+
+I'd like to draw your attention to formatting the code and to not adding too many
+comments. For now, take into account the priorities below.
+
+The first priority of writing code should be for the code to work. You did well here!
+
+The second priority should be for code to be well organized so others who have to modify 
+it can understand it well. In this case you added too many comments. For example, you
+don't need to add a comment at the end of every class or for loop.
+

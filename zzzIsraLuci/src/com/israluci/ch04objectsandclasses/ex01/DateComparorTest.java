@@ -43,7 +43,7 @@ public class DateComparorTest
 
         int numOfDays = 0, numOfMonths = 0, numOfYears = 0, j = 1;
 
-        System.out.println( "datesEntered.length: " + datesEntered.length );
+        //System.out.println( "datesEntered.length: " + datesEntered.length );
         for ( int i = 0; i < datesEntered.length - 1; i++ ) {
 
             numOfDays = dateComp.computeDaysBetweenDates( datesEntered[i], datesEntered[j] );

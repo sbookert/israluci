@@ -1,19 +1,18 @@
 Difference 1:
 
-
-
+There are only 6 comments in your code. Removing the comments from my program looks a lot cleaner and easy to read.
 
 Difference 2:
 
-
+Two more methods besides Main were created (getDatesFromInput, printOutput).
 
 Difference 3:
-
+Two private static variables, one of them is constant. The book also states that access to members of a class should be
+set explicitly, most of the times private unless it is a public constant field.
 
 
 Difference 4:
 
-
-
-Add more if you want to...
-
+Your program is easy to read. Comments are minimal and other methods were created besides what was specified. 
+Reviewing your program made me remember one of the goals of OOP is to easily find mistakes in our program. 
+By creating other methods it can help readability and the ease of finding which method caused an issue.

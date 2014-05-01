@@ -40,7 +40,7 @@ public class ComparingTwoClasses {
 		int min = t.get(Calendar.MINUTE);
 		int sec = t.get(Calendar.SECOND);
 		int msec = t.get(Calendar.MILLISECOND);
-		
+
 		numOfDays = dateComp.computeDaysBetweenDates(datesEntered[0],datesEntered[1]);
 
 		//create second date
@@ -57,6 +57,8 @@ public class ComparingTwoClasses {
 		totSecs = sec - sec2; 
 		totmSecs = msec - msec2;
 
+		printOutputDays(numOfDays,totMins, totSecs, totmSecs);
+
 		//create first date			
 		t=createDate();
 
@@ -69,10 +71,17 @@ public class ComparingTwoClasses {
 		//create 2nd date			
 		t2=createDate();
 
-		//calculate
 		min2 = t2.get(Calendar.MINUTE);
 		sec2 = t2.get(Calendar.SECOND);
 		msec2 = t2.get(Calendar.MILLISECOND);
+
+		//Calculate time
+		totMins = 0; totSecs = 0; totmSecs = 0;
+		totMins = min - min2;
+		totSecs = sec - sec2; 
+		totmSecs = msec - msec2;
+
+		printOutputMonths(numOfMonths,totMins, totSecs, totmSecs);
 
 		//create first date
 		t=createDate();
@@ -90,15 +99,23 @@ public class ComparingTwoClasses {
 		sec2 = t2.get(Calendar.SECOND);
 		msec2 = t2.get(Calendar.MILLISECOND);
 
-		printOutput(numOfDays,numOfMonths,numOfYears,totMins, totSecs, totmSecs);
+		//Calculate time
+		totMins = 0; totSecs = 0; totmSecs = 0;
+		totMins = min - min2;
+		totSecs = sec - sec2; 
+		totmSecs = msec - msec2;
 
+		printOutputYears(numOfYears,totMins, totSecs, totmSecs);
+
+		System.out.println("The output below is for class: com.israluci.ch04objectsandclasses.ex01.DateComparor");
+		
 		//create first date										
 		t=createDate();
 
 		min = t.get(Calendar.MINUTE);
 		sec = t.get(Calendar.SECOND);
 		msec = t.get(Calendar.MILLISECOND);
-		
+
 		numOfDays = myDateComp.computeDaysBetweenDates(datesEntered[0],datesEntered[1]);
 
 		//create second date					
@@ -113,6 +130,8 @@ public class ComparingTwoClasses {
 		totMins = min2 - min;
 		totSecs = sec2 - sec; 
 		totmSecs = msec2 - msec;
+
+		printOutputDays(numOfDays,totMins,totSecs,totmSecs);
 
 		//create first date			
 		t=createDate();
@@ -131,6 +150,14 @@ public class ComparingTwoClasses {
 		sec2 = t2.get(Calendar.SECOND);
 		msec2 = t2.get(Calendar.MILLISECOND);
 
+		//Calculate time
+		totMins = 0; totSecs = 0; totmSecs = 0;
+		totMins = min2 - min;
+		totSecs = sec2 - sec; 
+		totmSecs = msec2 - msec;
+
+		printOutputMonths(numOfMonths,totMins,totSecs,totmSecs);
+
 		//create first date
 		t=createDate();
 
@@ -146,8 +173,14 @@ public class ComparingTwoClasses {
 		min2 = t2.get(Calendar.MINUTE);
 		sec2 = t2.get(Calendar.SECOND);
 		msec2 = t2.get(Calendar.MILLISECOND);
+		//Calculate time
+		totMins = 0; totSecs = 0; totmSecs = 0;
+		totMins = min2 - min;
+		totSecs = sec2 - sec; 
+		totmSecs = msec2 - msec;
 
-		printOutput(numOfDays,numOfMonths,numOfYears,totMins, totSecs, totmSecs);			
+		printOutputYears(numOfYears,totMins,totSecs,totmSecs);	
+		System.out.println("Bye!");
 	}	
 
 	private static Date[] getDatesFromInput(String[] datesAsStrings) {
@@ -167,12 +200,18 @@ public class ComparingTwoClasses {
 		return datesEntered;
 	}
 
-	private static void printOutput(int numOfDays, int numOfMonths, int numOfYears, int totMins, int totSecs, int totmSecs) {
+	private static void printOutputDays(int numOfDays,int totMins, int totSecs, int totmSecs) {
 		System.out.println("Method computeDaysBetweenDates was called. It ran for "
-				+ totMins + " minutes " + totSecs + " seconds " + totmSecs + " milliseconds and returned: " + numOfDays);
-		System.out.println("Method computeDaysBetweenDates was called. It ran for "
+				+ totMins + " minutes " + totSecs + " seconds " + totmSecs + " milliseconds and returned: " + numOfDays);		
+	}
+
+	private static void printOutputMonths(int numOfMonths, int totMins, int totSecs, int totmSecs) {		
+		System.out.println("Method computeMonthsBetweenDates was called. It ran for "
 				+ totMins + " minutes " + totSecs + " seconds " + totmSecs + " milliseconds and returned: " + numOfMonths);
-		System.out.println("Method computeDaysBetweenDates was called. It ran for " + totMins + " minutes "
+	}
+
+	private static void printOutputYears(int numOfYears, int totMins, int totSecs, int totmSecs) {	
+		System.out.println("Method computeYearsBetweenDates was called. It ran for " + totMins + " minutes "
 				+ totSecs + " seconds " + totmSecs + " milliseconds and returned: " + numOfYears);
 
 	}

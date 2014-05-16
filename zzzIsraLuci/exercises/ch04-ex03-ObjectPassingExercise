@@ -1,0 +1,35 @@
+Exercise specification:
+********************************************************************************************
+
+So far you wrote programs from scratch. Most often you will write new code and plug it into
+existing programs. You'll get a chance to write code now, and plug it into a program which
+I wrote for you. 
+
+Part 1.
+Add code to the program inside the methods that have a //TODO comment so the output will be 
+exactly like this:
+
+Animal Benito says 'Hola!'
+Animal Zapata says 'Hola!'
+Animal Benito says 'Hola!'
+
+Animal Martin Gonzales says 'Hola!'
+Animal Maria Gonzales says 'Hola!'
+
+Animal Jorge Gonzales says 'Hola!'
+
+Farm animals will speak:
+Animal Benito says 'Hola!'
+Animal Martin Gonzales says 'Hola!'
+Animal Maria Gonzales says 'Hola!'
+Animal Jorge Gonzales says 'Hola!'
+
+Part 2.
+Look on line 12 of class ObjectPassingExercise. Answer this: // TODO explain why the output is not: Animal Zapata says 'Hola!'
+Put your answer in the file ch04-ex03-Answer.txt
+
+Enjoy!
+
+Feedback 1:
+********************************************************************************************
+

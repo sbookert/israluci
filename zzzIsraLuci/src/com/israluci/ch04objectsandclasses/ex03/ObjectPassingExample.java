@@ -5,10 +5,10 @@ public class ObjectPassingExample
     public static void main( String[] args )
     {
         Animal a = new Animal( "Perrito" );        
-        a.makeItSpeak();
+        a.speak();
         
         Animal b = createAnimal("Gattita", "miau");
-        b.makeItSpeak();
+        b.speak();
         
     }
     

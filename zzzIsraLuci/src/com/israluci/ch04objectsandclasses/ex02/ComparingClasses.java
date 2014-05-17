@@ -13,14 +13,12 @@ public class ComparingClasses
 {
 	public static void main( String[] args )
 	{
-		System.out.println( "Hello, insert 2 or more dates separated by commas:" );
+		System.out.print( "Testing DateComparator classes with dates:" );
 
 		//get input
 		Scanner s1 = new Scanner( System.in );
 		String input = s1.nextLine();
-		s1.close();
-
-		System.out.println( "\nThanks!\n" );
+		s1.close();		
 
 		//convert the input to dates
 		String[] datesAsStrings = input.split( "," );
@@ -113,19 +111,18 @@ public class ComparingClasses
 		return datesEntered;
 	}
 
-	private static void printOutput(long daysMs, long monthsMs, long yearsMs,int d, int m, int y)
-	{
-		long daySecs=yearsMs/1000;
-		long monthSecs=monthsMs/1000;
-		long yearSecs=yearsMs/1000;
+	private static void printOutput(long msToCalcDays, long msToCalcMonths, long msToCalcYears,int d, int m, int y)
+	{				
+		//need to start with minutes go down to sec and ms, use mod
+		long secsToCalcDays=msToCalcDays/1000;
+		long minsToCalcDays=msToCalcDays/(1000*60);
+		long secsToCalcMonths=msToCalcMonths/1000;
+		long minsToCalcMonths=msToCalcMonths/(1000*60);
+		long secsToCalcYears=msToCalcYears/1000;
+		long minsToCalcYears=msToCalcYears/(1000*60);
 		
-		long daysMin=daySecs/60;
-		long monthsMin=daySecs/60;
-		long yearsMin=daySecs/60;
-		
-		System.out.println("Method computeDaysBetweenDates was called. It ran for "+daysMin+" minutes "+daySecs+" seconds "+daysMs+" milliseconds and returned: "+d);
-		System.out.println("Method computeMonthsBetweenDates was called. It executed for "+monthsMin+" minutes  "+monthSecs+" seconds "+monthsMs+" milliseconds and returned: "+m);
-		System.out.println("Method computeYearsBetweenDates was called. It executed for "+yearsMin+" minutes  "+yearSecs+" seconds "+yearsMs+" milliseconds and returned: "+y);
+		System.out.println("Method computeDaysBetweenDates was cal led. It ran for "+minsToCalcDays+" minutes "+secsToCalcDays+" seconds "+ msToCalcDays +" milliseconds and returned: "+d);
+		System.out.println("Method computeMonthsBetweenDates was called. It executed for "+minsToCalcMonths+" minutes  "+secsToCalcMonths+" seconds "+msToCalcMonths+" milliseconds and returned: "+m);
+		System.out.println("Method computeYearsBetweenDates was called. It executed for "+minsToCalcYears+" minutes  "+secsToCalcYears+" seconds "+msToCalcYears+" milliseconds and returned: "+y);
 	}
-
 }

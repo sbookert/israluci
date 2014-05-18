@@ -26,6 +26,7 @@ public class ComparingClasses
 
 		com.israluci.ch04objectsandclasses.ex01.vlad.DateComparor dateComp = new com.israluci.ch04objectsandclasses.ex01.vlad.DateComparor();
 		
+		System.out.println();
 		System.out.println("The output below is for class: com.israluci.ch04objectsandclasses.ex01.vlad.DateComparor");
 		calcTimeVlad(dateComp,datesEntered[0],datesEntered[1]);
 		System.out.println();
@@ -114,12 +115,19 @@ public class ComparingClasses
 	private static void printOutput(long msToCalcDays, long msToCalcMonths, long msToCalcYears,int d, int m, int y)
 	{				
 		//need to start with minutes go down to sec and ms, use mod
-		long secsToCalcDays=msToCalcDays/1000;
-		long minsToCalcDays=msToCalcDays/(1000*60);
-		long secsToCalcMonths=msToCalcMonths/1000;
-		long minsToCalcMonths=msToCalcMonths/(1000*60);
-		long secsToCalcYears=msToCalcYears/1000;
-		long minsToCalcYears=msToCalcYears/(1000*60);
+		System.out.println("msDays: "+msToCalcDays+" msMonths: "+msToCalcMonths+"msYears: " + msToCalcYears);
+		
+		long secsToCalcDays=(msToCalcDays/1000)%60;
+		long minsToCalcDays=(msToCalcDays/(1000*60))%60;
+		msToCalcDays=msToCalcDays%1000;
+		
+		long secsToCalcMonths=(msToCalcMonths/1000)%60;
+		long minsToCalcMonths=(msToCalcMonths/(1000*60))%60;
+		msToCalcMonths=msToCalcMonths%1000;
+		
+		long secsToCalcYears=(msToCalcYears/1000)%60;
+		long minsToCalcYears=(msToCalcYears/(1000*60))%60;
+		msToCalcYears=msToCalcYears%1000;
 		
 		System.out.println("Method computeDaysBetweenDates was cal led. It ran for "+minsToCalcDays+" minutes "+secsToCalcDays+" seconds "+ msToCalcDays +" milliseconds and returned: "+d);
 		System.out.println("Method computeMonthsBetweenDates was called. It executed for "+minsToCalcMonths+" minutes  "+secsToCalcMonths+" seconds "+msToCalcMonths+" milliseconds and returned: "+m);

@@ -2,4 +2,6 @@ Answer this question:
 Why is there a difference in run times between the two classes?
 
 Put your answer here:
-One of the methods uses while loops that makes the method slower. Overall your classer are implemented with less overhead.
+I implemented computeDaysBetweenDates method and computeMonthsBetweenDates method using loops. The loops make my program really slow and hard to understand its logic.
+While you implemented the methods using calculations. The calculations make your program run really fast. When testing your class it took from 0 to 1 milliseconds to run
+while my program took from 10 seconds to 1 minute to run. This really makes think about choosing my solutions carefully.

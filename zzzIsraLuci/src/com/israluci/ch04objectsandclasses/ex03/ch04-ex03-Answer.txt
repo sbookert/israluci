@@ -1,0 +1,2 @@
+Java uses pass by value. When passing an object as parameter, the parameter is a copy of the location of the object. We can update the objects data but
+we can't change it's location.

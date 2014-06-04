@@ -10,6 +10,9 @@ public class ObjectPassingExercise
         
         changeName( burro );
         burro.speak();// TODO explain why the output is not: Animal Zapata says 'Hola!'
+        // Parameters are passed by value so even though a new reference was added to object
+        // inside changeName method, the changes done inside that method was not to the object in
+        // main method therefore this obj is still unchanged. 
         System.out.println();
                 
         //example how method cannot replace object vaca, but it can make changes to it
@@ -50,8 +53,17 @@ public class ObjectPassingExercise
 
     private static void changeNameOfWife( Animal torro, Animal vaca )
     {
-        // TODO Auto-generated method stub    	
-    	vaca.setName("Maria Gonzales");
+        // TODO Auto-generated method stub 
+    	String torroName = torro.getName();    	    
+    	int spaceBetweenFirstAndLastName = torroName.indexOf(" ");
+    	String lastName = torroName.substring(spaceBetweenFirstAndLastName+1);
+    	
+    	String vacaName = vaca.getName();
+    	spaceBetweenFirstAndLastName = vacaName.indexOf(" ");
+    	vacaName=vacaName.substring(0, spaceBetweenFirstAndLastName);    		
+    	
+    	System.out.println("Name: "+vacaName+" "+lastName);
+    	vaca.setName(vacaName+" "+lastName);
     }
 
     private static void changeName( Animal burro )

@@ -1,0 +1,44 @@
+Exercise specification:
+********************************************************************************************
+
+Let's have some fun! We'll create a Tic Tac Toe game :) Let's start with the board and 
+X and O pieces.
+
+Create a class called Board. The class should have the following methods:
+
+	public String render()
+		- should return a string like this:
+			[ ][ ][ ]
+			[ ][ ][ ]
+			[ ][ ][ ]
+	public boolean addPiece(Piece p)
+		- should return true if the piece can be placed on a square, then put the piece there
+		- should return false if there is already a piece there or if the square doesn't exist
+		- the top left square is has x=0, y=0, the bottom right square is x=2, y=2
+
+Create a class called Piece, and two child classes called PieceX and PieceY the methods 
+are up to you.
+	
+Create a class called UserInterface which has the following methods:
+
+	public Piece askWhereToPutPiece()
+		- this class should print to console: Where do you want to place your piece? (example: 'x on 1,0' or 'exit')
+		- returns null if user typed exit
+	
+	public void showBoard()
+		- this class prints the board to the screen for example: 
+			[ ][X][ ]
+			[ ][ ][O]
+			[ ][ ][ ]
+
+Create a class which has a main method called StartGame
+
+if you feel classes or methods are missing add them!
+
+Add the classes to package: com.israluci.ch04TicTacToe.ex01
+
+Enjoy!
+
+Feedback 1:
+********************************************************************************************
+

@@ -3,25 +3,24 @@ package com.israluci.ch04TicTacToe.ex01;
 public class Board {
 	int row=3,col=3;
 	private String[][] board= new String[row][col];
-	private String strBracket="[ ]";
-	private int max=board.length;		
-	private String turn="[X]";
-	
+	private String strBracket=" ";	
+	private String turn="X";
+	private String strOut="";
 	
 	public Board(){
-		for (int i=0; i<max;i++)
-			for (int j=0; j<max;j++)
+		//initialize board to brackets [ ]
+		for (int i=0; i<row;i++)
+			for (int j=0; j<col;j++)
 				board[i][j]=strBracket;
 	}
 	
-	public String render(){
-		String strOut="";
-		
-		for(int i=0; i<3;i++){
+	public String render(){	
+		// concatenate board to string for display
+		for(int i=0; i<row;i++){
 			if(i!=0)
 				strOut+="\n";
-			for(int j=0; j<3; j++){
-			strOut+=board[i][j];
+			for(int j=0; j<col; j++){
+				strOut=strOut+ "["+board[i][j]+"]";
 			}
 		}
 		return strOut;	
@@ -33,18 +32,19 @@ public class Board {
 	- the top left square is has x=0, y=0, the bottom right square is x=2, y=2
 	*/
 	public boolean addPiece(Piece p){
-		int x=p.getX()-1;
-		int y=p.getY()-1;
+		int locX = p.getX()-1;
+		int locY = p.getY()-1;
 	
-		if ((x>=max||x<0) || (y>=max||y<0))
+		if ((locX >= row || locX < 0) || (locY >= col || locY < 0))
 			return false;
 		else {
-			if(board[x][y].equalsIgnoreCase(strBracket)){
-				board[x][y]=turn;
-				if(turn=="[X]")
-					turn="[O]";
+			// If location is empty then add piece
+			if(board[locX][locY].equalsIgnoreCase(strBracket)){
+				board[locX][locY]=turn;
+				if(turn.equalsIgnoreCase("X"))
+					turn="O";
 				else
-					turn="[X]";
+					turn="X";
 				return true;
 			}else 
 				return false;

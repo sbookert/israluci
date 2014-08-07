@@ -5,7 +5,6 @@ public class Board {
 	private String[][] board= new String[row][col];
 	private String strBracket=" ";	
 	private String turn="X";
-	private String strOut="";
 	
 	public Board(){
 		//initialize board to brackets [ ]
@@ -15,6 +14,7 @@ public class Board {
 	}
 	
 	public String render(){	
+		 String strOut="";
 		// concatenate board to string for display
 		for(int i=0; i<row;i++){
 			if(i!=0)

@@ -3,6 +3,9 @@ package com.israluci.ch04TicTacToe.ex01;
 import java.util.Scanner;
 
 public class UserInterface {
+	Board b = new Board();
+	PieceX px = new PieceX();
+	PieceY py = new PieceY();
 	int x=0,y=0;
 	String turn="";
 
@@ -33,10 +36,7 @@ public class UserInterface {
 	}
 	
 	public void showBoard(){
-		Board b = new Board();
-		PieceX px = new PieceX();
-		PieceY py = new PieceY();
-		
+
 		if(turn.equalsIgnoreCase("x")){
 			px.setX(x);
 			px.setY(y);
@@ -48,7 +48,7 @@ public class UserInterface {
 			py.setY(y);
 			
 			System.out.println(b.addPiece(py));
-			System.out.println(b.render());
+			//System.out.println(b.render());
 		}
 
 	}

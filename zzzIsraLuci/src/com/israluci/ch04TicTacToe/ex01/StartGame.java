@@ -6,7 +6,7 @@ public class StartGame {
 		UserInterface ui=new UserInterface();
 		
 		ui.askWhereToPutPiece();
-		ui.showBoard();
+		//ui.showBoard();
 	}
 
 }

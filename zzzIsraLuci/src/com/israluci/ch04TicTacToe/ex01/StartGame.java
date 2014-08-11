@@ -4,9 +4,12 @@ public class StartGame {
 
 	public static void main(String[] args) {
 		UserInterface ui=new UserInterface();
+		Piece p=new Piece();
 		
-		ui.askWhereToPutPiece();
-		//ui.showBoard();
+		do{
+			p=ui.askWhereToPutPiece();
+			ui.showBoard();
+		}while(p != null);
 	}
 
 }

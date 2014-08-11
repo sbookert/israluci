@@ -12,6 +12,6 @@ public class PieceY extends Piece{
 		if(y > 3)
 			System.out.println("Y invalid location");
 		else
-			super.setX(y);
+			super.setY(y);
 	}
 }

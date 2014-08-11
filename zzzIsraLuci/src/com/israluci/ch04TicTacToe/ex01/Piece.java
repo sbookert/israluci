@@ -3,11 +3,12 @@ package com.israluci.ch04TicTacToe.ex01;
 public class Piece {
 	private int x;
 	private int y;
-	private String turn;
+	private boolean turn;
 	
 	public Piece(){
 		x=0;
 		y=0;
+		turn=false;
 	}
 	
 	public int getX() {
@@ -21,6 +22,14 @@ public class Piece {
 	}
 	public void setY(int y) {
 		this.y = y;
+	}
+
+	public boolean isTurn() {
+		return turn;
+	}
+
+	public void setTurn(boolean turn) {
+		this.turn = turn;
 	}
 
 	

@@ -3,30 +3,23 @@ package com.israluci.ch04TicTacToe.ex01;
 import java.util.Scanner;
 
 public class UserInterface {
-	Board b = new Board();
-	int x=0,y=0;
-	String turn="";
-	PieceX px = new PieceX();
-	PieceY py = new PieceY();
-
+	private Board b = new Board();
+	private int x=0,y=0;
+	private String turn="";
+	private PieceX px = new PieceX();
+	private PieceY py = new PieceY();
+	private String input;
+	private Scanner s = new Scanner(System.in);
+	private String[] strNum=null;
+	
 	public Piece askWhereToPutPiece(){
-		Scanner s = new Scanner(System.in);
-		String input;
 		
-		System.out.println("Where do you want to place your piece? example: x on 1,0 or exit");
-		input = s.nextLine();
-		
-		//split input on spaces and set turn
-		String[] strNum=input.split(" ");
-		turn=strNum[0];
+		getInput();
 		
 		if (turn.equalsIgnoreCase("exit"))
 			return null;
 		
-		//split location row and col
-		String[] pieceLoc=strNum[2].split(",");
-		x=Integer.parseInt(pieceLoc[0]);
-		y=Integer.parseInt(pieceLoc[1]);
+		splitRowCol();
 
 		if(turn.equalsIgnoreCase("X")){
 			px.setX(x);
@@ -47,6 +40,24 @@ public class UserInterface {
 	
 	}
 	
+	private void splitRowCol() {
+		//split location row and col
+		String[] pieceLoc=strNum[2].split(",");
+		x=Integer.parseInt(pieceLoc[0]);
+		y=Integer.parseInt(pieceLoc[1]);
+		
+	}
+
+	private void getInput() {
+		System.out.println("Where do you want to place your piece? example: x on 1,0 or exit");
+		input = s.nextLine();
+		
+		//split input on spaces and set turn
+		strNum=input.split(" ");
+		turn=strNum[0];
+		
+	}
+
 	public void showBoard(){
 		//addPiece returns boolean use it to drive
 		// also turn needs to reset or check it is not the same player playing

@@ -23,17 +23,10 @@ public class UserInterface {
 		if (turn.equalsIgnoreCase("exit"))
 			return null;
 		
-		//debug: input was split on spaces, display content
-		for (String str: strNum)
-			System.out.println(str);
-		
 		//split location row and col
 		String[] pieceLoc=strNum[2].split(",");
 		x=Integer.parseInt(pieceLoc[0]);
 		y=Integer.parseInt(pieceLoc[1]);
-		
-		//debug: Display piece location entered
-		System.out.println(input);
 
 		if(turn.equalsIgnoreCase("X")){
 			px.setX(x);
@@ -60,13 +53,11 @@ public class UserInterface {
 		if(px.isTurn()){
 			// Adds piece to empty slot and displays board
 			System.out.println(b.addPiece(px));
-			System.out.println("px turn");
 		}
 		
 		if(py.isTurn()){
 			// Adds piece to empty slot and displays board
 			System.out.println(b.addPiece(py));
-			System.out.println("py turn");
 		}
 		
 		System.out.println(b.render());

@@ -39,8 +39,6 @@ public class Board {
 	    	px=(PieceX) p;
 	    else
 	    	py=(PieceY) p;
-	    
-	    System.out.print("px" + px.isTurn() + "  py" + py.isTurn());
 			
 		if ((locX >= row || locX < 0) || (locY >= col || locY < 0))
 			return false;

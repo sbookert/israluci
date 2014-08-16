@@ -4,11 +4,13 @@ public class Piece {
 	private int x;
 	private int y;
 	private boolean turn;
+	private static String p;
 	
 	public Piece(){
 		x=0;
 		y=0;
 		turn=false;
+		p="X";
 	}
 	
 	public int getX() {
@@ -30,6 +32,14 @@ public class Piece {
 
 	public void setTurn(boolean turn) {
 		this.turn = turn;
+	}
+
+	public static String getP() {
+		return p;
+	}
+
+	public static void setP(String p) {
+		Piece.p = p;
 	}
 
 	

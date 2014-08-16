@@ -41,26 +41,29 @@ public class Board {
 	    else
 	    	py=(PieceY) p;
 			
-		if ((locX >= row || locX < 0) || (locY >= col || locY < 0))
+		if ((locX >= row || locX < 0) || (locY >= col || locY < 0)){
 			return false;
+		}
 		else {
 			// If location is empty then add piece
 			if(board[locX][locY].equalsIgnoreCase(strBracket)){
-				addPieceToBoard();
-				
+				addPieceToBoard();				
 				return true;
-			}else 
+			}else {
 				return false;
+			}
 		}	
 	}
 
 	private void addPieceToBoard() {
 		if(px.isTurn()){
 			board[locX][locY]="X";
+			Piece.setP("o");
 		}
 		
 		if(py.isTurn()){
 			 board[locX][locY]="O";
+			 Piece.setP("x");
 		 }
 		
 	}

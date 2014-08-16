@@ -40,6 +40,7 @@ public class UserInterface {
 	
 	}
 	
+	// Add verification for x and y to be > 0
 	private void splitRowCol() {
 		//split location row and col
 		String[] pieceLoc=strNum[2].split(",");
@@ -49,12 +50,25 @@ public class UserInterface {
 	}
 
 	private void getInput() {
-		System.out.println("Where do you want to place your piece? example: x on 1,0 or exit");
-		input = s.nextLine();
+		boolean condition=false;
 		
-		//split input on spaces and set turn
-		strNum=input.split(" ");
-		turn=strNum[0];
+		do{
+			System.out.println("Where do you want to place your piece? example: x on 1,0 or exit");
+			input = s.nextLine();
+			
+			//split input on spaces and set turn
+			strNum=input.split(" ");
+			
+			/* a static variable that can be set once a piece is added then add it to while loop staticVar!=strNum[0]*/
+			System.out.println(strNum[0]+":"+Piece.getP());
+			System.out.println(Piece.getP().equalsIgnoreCase(strNum[0]));
+			condition=
+					( strNum.length == 3) && 
+					(!Piece.getP().equalsIgnoreCase(strNum[0]));
+			System.out.println("condition: "+condition);
+			turn=strNum[0];
+		}while ( condition);
+		//&& (strNum[0].equalsIgnoreCase("x") || (strNum[0].equalsIgnoreCase("o")))
 		
 	}
 
@@ -63,12 +77,14 @@ public class UserInterface {
 		// also turn needs to reset or check it is not the same player playing
 		if(px.isTurn()){
 			// Adds piece to empty slot and displays board
-			System.out.println(b.addPiece(px));
+			b.addPiece(px);
+			px.setTurn(false);
 		}
 		
 		if(py.isTurn()){
 			// Adds piece to empty slot and displays board
-			System.out.println(b.addPiece(py));
+			b.addPiece(py);
+			py.setTurn(false);
 		}
 		
 		System.out.println(b.render());

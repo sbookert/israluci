@@ -55,20 +55,11 @@ public class UserInterface {
 		do{
 			System.out.println("Where do you want to place your piece? example: x on 1,0 or exit");
 			input = s.nextLine();
-			
 			//split input on spaces and set turn
-			strNum=input.split(" ");
-			
-			/* a static variable that can be set once a piece is added then add it to while loop staticVar!=strNum[0]*/
-			System.out.println(strNum[0]+":"+Piece.getP());
-			System.out.println(Piece.getP().equalsIgnoreCase(strNum[0]));
-			condition=
-					( strNum.length == 3) && 
-					(!Piece.getP().equalsIgnoreCase(strNum[0]));
-			System.out.println("condition: "+condition);
+			strNum=input.split(" ");		
+			condition = ( strNum.length == 3) && (!Piece.getP().equalsIgnoreCase(strNum[0]));
 			turn=strNum[0];
 		}while ( condition);
-		//&& (strNum[0].equalsIgnoreCase("x") || (strNum[0].equalsIgnoreCase("o")))
 		
 	}
 

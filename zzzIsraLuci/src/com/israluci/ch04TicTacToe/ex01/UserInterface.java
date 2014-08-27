@@ -50,10 +50,8 @@ public class UserInterface {
 	}
 
 	private void getInput() {
-		boolean on=true,checkPiece=true,pos=true,strLength=true,checkTurn=true,notCorrectFormat;	
-			strNum[0]="";
-			strNum[1]="";
-			strNum[2]="";
+		boolean on=true,pos=true,checkTurn=true,notCorrectFormat;	
+
 		do{
 			System.out.println("Where do you want to place your piece? example: x on 1,0 or exit");
 			input = s.nextLine();
@@ -69,7 +67,7 @@ public class UserInterface {
 			}else{
 				checkTurn=(!Piece.getP().equalsIgnoreCase(strNum[0]));
 				on=(strNum[1].equalsIgnoreCase("on"));
-				pos=strNum[2].contains(",");
+				pos=!strNum[2].contains(",");
 				notCorrectFormat=checkTurn && on && pos;
 			}
 		}while(notCorrectFormat);

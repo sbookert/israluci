@@ -10,7 +10,7 @@ public class UserInterface {
 	private PieceY py = new PieceY();
 	private String input;
 	private Scanner s = new Scanner(System.in);
-	private String[] strNum=null;
+	private String[] strNum=new String[3];
 	
 	public Piece askWhereToPutPiece(){
 		
@@ -50,16 +50,29 @@ public class UserInterface {
 	}
 
 	private void getInput() {
-		boolean condition=false;
-		
+		boolean on=true,checkPiece=true,pos=true,strLength=true,checkTurn=true,notCorrectFormat;	
+			strNum[0]="";
+			strNum[1]="";
+			strNum[2]="";
 		do{
 			System.out.println("Where do you want to place your piece? example: x on 1,0 or exit");
 			input = s.nextLine();
-			//split input on spaces and set turn
-			strNum=input.split(" ");		
-			condition = ( strNum.length == 3) && (!Piece.getP().equalsIgnoreCase(strNum[0]));
+			strNum=input.split(" ");
+			
 			turn=strNum[0];
-		}while ( condition);
+			
+			if(turn.equalsIgnoreCase("exit"))
+				break;
+			
+			if(strNum.length<3){
+				notCorrectFormat=true;
+			}else{
+				checkTurn=(!Piece.getP().equalsIgnoreCase(strNum[0]));
+				on=(strNum[1].equalsIgnoreCase("on"));
+				pos=strNum[2].contains(",");
+				notCorrectFormat=checkTurn && on && pos;
+			}
+		}while(notCorrectFormat);
 		
 	}
 

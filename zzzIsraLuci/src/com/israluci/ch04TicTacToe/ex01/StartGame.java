@@ -13,7 +13,7 @@ public class StartGame {
 		
 		do{
 			System.out.println("What player would you like to be? X or O");
-			player=s.nextLine();
+			player=s.nextLine().trim();
 			playerPiece=player.equalsIgnoreCase("x") || player.equalsIgnoreCase("o");
 		}while(!playerPiece);
 		

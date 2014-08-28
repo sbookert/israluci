@@ -65,9 +65,10 @@ public class UserInterface {
 			if(strNum.length<3){
 				notCorrectFormat=true;
 			}else{
+				/*all need to be true for loop to continue*/
 				checkTurn=(!Piece.getP().equalsIgnoreCase(strNum[0]));
 				on=(strNum[1].equalsIgnoreCase("on"));
-				pos=!strNum[2].contains(",");
+				pos=strNum[2].contains(",");
 				notCorrectFormat=checkTurn && on && pos;
 			}
 		}while(notCorrectFormat);
@@ -88,6 +89,9 @@ public class UserInterface {
 			b.addPiece(py);
 			py.setTurn(false);
 		}
+		
+		if(b.GameOver(x-1, y-1))
+			System.out.println("Winner!!");
 		
 		System.out.println(b.render());
 	}

@@ -67,4 +67,24 @@ public class Board {
 		 }
 		
 	}
+	
+	public boolean GameOver(int rMove, int cMove){
+		
+		
+		/*
+		 * _
+		 * _
+		 * _*/
+		if(board[0][cMove] == board[1][cMove] && board[0][cMove] == board[2][cMove])
+			return true;
+		// _ _ _
+		if(board[rMove][0] == board[rMove][1] && board[rMove][0] == board[rMove][2])
+			return true;
+		if(board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[1][1] !=" ")
+			return true;
+		if(board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[1][1] !=" ")
+			return true;
+		
+		return false;
+	}
 }

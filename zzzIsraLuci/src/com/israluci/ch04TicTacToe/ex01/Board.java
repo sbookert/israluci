@@ -69,12 +69,9 @@ public class Board {
 	}
 	
 	public boolean GameOver(int rMove, int cMove){
-		
-		
-		/*
-		 * _
-		 * _
-		 * _*/
+		 /* _
+		 *  _
+		 *  _*/
 		if(board[0][cMove] == board[1][cMove] && board[0][cMove] == board[2][cMove])
 			return true;
 		// _ _ _

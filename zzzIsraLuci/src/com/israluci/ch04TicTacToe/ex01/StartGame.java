@@ -21,7 +21,10 @@ public class StartGame {
 		
 		do{
 			p=ui.askWhereToPutPiece();
-			ui.showBoard();
+			if(p==null)
+				break;
+			else
+				ui.showBoard();
 		}while(p != null);
 	}
 

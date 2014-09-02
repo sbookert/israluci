@@ -11,15 +11,14 @@ public class UserInterface {
 	private String input;
 	private Scanner s = new Scanner(System.in);
 	private String[] strNum=new String[3];
+	private boolean on=true,pos=true,correctPlayer=true,notCorrectFormat;
+	private boolean winner=false;
 	
 	public Piece askWhereToPutPiece(){
-		
-		getInput();
-		
-		if (turn.equalsIgnoreCase("exit"))
+		if(winner)
 			return null;
 		
-		splitRowCol();
+		getUserInput();
 
 		if(turn.equalsIgnoreCase("X")){
 			px.setX(x);
@@ -40,20 +39,23 @@ public class UserInterface {
 	
 	}
 	
-	// Add verification for x and y to be > 0
-	private void splitRowCol() {
+	private boolean setRowCol() {
 		//split location row and col
 		String[] pieceLoc=strNum[2].split(",");
-		x=Integer.parseInt(pieceLoc[0]);
-		y=Integer.parseInt(pieceLoc[1]);
-		
+
+		if(pieceLoc.length==2){
+			if(pieceLoc[0].matches("[1-3]")&&pieceLoc[1].matches("[1-3]")){
+				x=Integer.parseInt(pieceLoc[0]);
+				y=Integer.parseInt(pieceLoc[1]);
+				return false;
+			}
+		}
+		return true;
 	}
 
-	private void getInput() {
-		boolean on=true,pos=true,checkTurn=true,notCorrectFormat;	
-
+	private void getUserInput() {	
 		do{
-			System.out.println("Where do you want to place your piece? example: x on 1,0 or exit");
+			System.out.println("Where do you want to place your piece? example: x on 1,1 or exit");
 			input = s.nextLine();
 			strNum=input.split(" ");
 			
@@ -62,17 +64,34 @@ public class UserInterface {
 			if(turn.equalsIgnoreCase("exit"))
 				break;
 			
-			if(strNum.length<3){
-				notCorrectFormat=true;
-			}else{
-				/*all need to be true for loop to continue*/
-				checkTurn=(!Piece.getP().equalsIgnoreCase(strNum[0]));
-				on=(strNum[1].equalsIgnoreCase("on"));
-				pos=strNum[2].contains(",");
-				notCorrectFormat=checkTurn && on && pos;
-			}
-		}while(notCorrectFormat);
+			verifyUserResponseFormat();
+			
+		}while(notCorrectFormat);		
+	}
+
+	private void verifyUserResponseFormat() {
+		// TODO Auto-generated method stub
 		
+		if(strNum.length==3){
+			/*checkTurn is false when Piece.getP() matches user input
+			 *otherwise if checkTurn is true then user input doesn't match
+			 *next move so the loop needs to be triggered again.
+			 */
+			correctPlayer=(!Piece.getP().equalsIgnoreCase(strNum[0]));
+			
+			if(!correctPlayer){
+				on=(strNum[1].equalsIgnoreCase("on"));
+				if(on)
+					pos=setRowCol();
+				else
+					notCorrectFormat=true;	
+			}else
+				notCorrectFormat=true;
+
+			//notCorrectFormat=checkTurn && on && pos;
+		}else
+			notCorrectFormat=true;
+		notCorrectFormat=notCorrectFormat&&correctPlayer;
 	}
 
 	public void showBoard(){
@@ -81,17 +100,22 @@ public class UserInterface {
 		if(px.isTurn()){
 			// Adds piece to empty slot and displays board
 			b.addPiece(px);
+			if(b.GameOver(x-1, y-1)){
+				System.out.println("Player X is the winner!!");
+				winner=true;
+			}
 			px.setTurn(false);
 		}
 		
 		if(py.isTurn()){
 			// Adds piece to empty slot and displays board
 			b.addPiece(py);
+			if(b.GameOver(x-1, y-1)){
+				System.out.println("Player O is the winner!!");
+				winner=true;
+			}
 			py.setTurn(false);
 		}
-		
-		if(b.GameOver(x-1, y-1))
-			System.out.println("Winner!!");
 		
 		System.out.println(b.render());
 	}

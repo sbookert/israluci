@@ -16,7 +16,7 @@ Create a class called Board. The class should have the following methods:
 		- should return false if there is already a piece there or if the square doesn't exist
 		- the top left square is has x=0, y=0, the bottom right square is x=2, y=2
 
-Create a class called Piece, and two child classes called PieceX and PieceY the methods 
+Create a class called Piece, and two child classes called PieceX and PieceO the methods 
 are up to you.
 	
 Create a class called UserInterface which has the following methods:
@@ -35,7 +35,7 @@ Create a class which has a main method called StartGame
 
 if you feel classes or methods are missing add them!
 
-Add the classes to package: com.israluci.ch04TicTacToe.ex01
+Add the classes to package: com.israluci.ch05TicTacToe.ex01
 
 Enjoy!
 

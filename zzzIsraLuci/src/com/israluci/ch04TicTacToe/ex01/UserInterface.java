@@ -56,7 +56,7 @@ public class UserInterface {
 	private void getUserInput() {	
 		do{
 			System.out.println("Where do you want to place your piece? example: x on 1,1 or exit");
-			input = s.nextLine();
+			input = s.nextLine().trim();
 			strNum=input.split(" ");
 			
 			turn=strNum[0];
@@ -82,16 +82,14 @@ public class UserInterface {
 			if(!correctPlayer){
 				on=(strNum[1].equalsIgnoreCase("on"));
 				if(on)
-					pos=setRowCol();
+					notCorrectFormat=setRowCol();
 				else
 					notCorrectFormat=true;	
 			}else
 				notCorrectFormat=true;
-
-			//notCorrectFormat=checkTurn && on && pos;
 		}else
 			notCorrectFormat=true;
-		notCorrectFormat=notCorrectFormat&&correctPlayer;
+		notCorrectFormat=notCorrectFormat;
 	}
 
 	public void showBoard(){

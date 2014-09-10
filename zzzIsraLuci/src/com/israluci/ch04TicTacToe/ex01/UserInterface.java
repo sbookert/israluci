@@ -11,7 +11,7 @@ public class UserInterface {
 	private String input;
 	private Scanner s = new Scanner(System.in);
 	private String[] strNum=new String[3];
-	private boolean on=true,pos=true,correctPlayer=true,notCorrectFormat;
+	private boolean on=true,correctPlayer=true,notCorrectFormat;
 	private boolean winner=false;
 	
 	public Piece askWhereToPutPiece(){
@@ -70,8 +70,7 @@ public class UserInterface {
 	}
 
 	private void verifyUserResponseFormat() {
-		// TODO Auto-generated method stub
-		
+	
 		if(strNum.length==3){
 			/*checkTurn is false when Piece.getP() matches user input
 			 *otherwise if checkTurn is true then user input doesn't match
@@ -89,7 +88,6 @@ public class UserInterface {
 				notCorrectFormat=true;
 		}else
 			notCorrectFormat=true;
-		notCorrectFormat=notCorrectFormat;
 	}
 
 	public void showBoard(){

@@ -1,11 +1,9 @@
 package com.israluci.ch04TicTacToe.ex01;
 
 public class PieceY extends Piece{
-	private String turn;
 	
 	public PieceY(){
 		super();
-		turn="O";
 	}
 	
 	public void setY(int y){

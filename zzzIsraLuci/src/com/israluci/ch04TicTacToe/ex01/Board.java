@@ -1,7 +1,7 @@
 package com.israluci.ch04TicTacToe.ex01;
 
 public class Board {
-	int row=3,col=3;
+	int row=3,col=3,max=row*col;
 	private String[][] board= new String[row][col];
 	private String strBracket=" ";	
 	private PieceX px= new PieceX();
@@ -59,11 +59,13 @@ public class Board {
 		if(px.isTurn()){
 			board[locX][locY]="X";
 			Piece.setP("o");
+			Piece.setCount();
 		}
 		
 		if(py.isTurn()){
 			 board[locX][locY]="O";
 			 Piece.setP("x");
+			 Piece.setCount();
 		 }
 		
 	}
@@ -80,6 +82,9 @@ public class Board {
 		if(board[0][0] == board[1][1] && board[0][0] == board[2][2] && board[1][1] !=" ")
 			return true;
 		if(board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[1][1] !=" ")
+			return true;
+		
+		if(Piece.getCount() == max)
 			return true;
 		
 		return false;

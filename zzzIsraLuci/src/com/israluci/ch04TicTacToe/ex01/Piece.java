@@ -5,12 +5,14 @@ public class Piece {
 	private int y;
 	private boolean turn;
 	private static String p;
+	private static int count;
 	
 	public Piece(){
 		x=0;
 		y=0;
 		turn=false;
 		p="X";
+		count=0;
 	}
 	
 	public int getX() {
@@ -42,5 +44,12 @@ public class Piece {
 		Piece.p = p;
 	}
 
-	
+	public static int getCount() {
+		// TODO Auto-generated method stub
+		return count;
+	}
+
+	public static void setCount(){
+		count=count+1;
+	}
 }

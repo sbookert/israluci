@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class UserInterface {
 	private Board b = new Board();
-	private int x=0,y=0;
+	private int x=0,y=0,max=3;
 	private String turn="";
 	private PieceX px = new PieceX();
 	private PieceY py = new PieceY();
@@ -38,20 +38,6 @@ public class UserInterface {
 		return null;
 	
 	}
-	
-	private boolean setRowCol() {
-		//split location row and col
-		String[] pieceLoc=strNum[2].split(",");
-
-		if(pieceLoc.length==2){
-			if(pieceLoc[0].matches("[1-3]")&&pieceLoc[1].matches("[1-3]")){
-				x=Integer.parseInt(pieceLoc[0]);
-				y=Integer.parseInt(pieceLoc[1]);
-				return false;
-			}
-		}
-		return true;
-	}
 
 	private void getUserInput() {	
 		do{
@@ -71,23 +57,43 @@ public class UserInterface {
 
 	private void verifyUserResponseFormat() {
 	
-		if(strNum.length==3){
+		if(strNum.length==max){
 			/*checkTurn is false when Piece.getP() matches user input
 			 *otherwise if checkTurn is true then user input doesn't match
 			 *next move so the loop needs to be triggered again.
 			 */
-			correctPlayer=(!Piece.getP().equalsIgnoreCase(strNum[0]));
+			correctPlayer=(!Piece.getP().equalsIgnoreCase(turn));
 			
+			/* If it is the correct player then 
+			 * check if usr input has the word on
+			 * if true then set the row and colmn
+			 * */
 			if(!correctPlayer){
 				on=(strNum[1].equalsIgnoreCase("on"));
 				if(on)
-					notCorrectFormat=setRowCol();
+					notCorrectFormat=setRowCol(); //returning false will keep getUserInput loop going
 				else
 					notCorrectFormat=true;	
 			}else
 				notCorrectFormat=true;
 		}else
 			notCorrectFormat=true;
+	}
+		
+	private boolean setRowCol() {
+		//split location string to get row and col
+		String[] pieceLoc=strNum[2].split(",");
+
+		/* Verify location is composed of x and y
+		 * Verify x and y are composed of only digits from 1-3*/
+		if(pieceLoc.length==2){
+			if(pieceLoc[0].matches("[1-3]")&&pieceLoc[1].matches("[1-3]")){
+				x=Integer.parseInt(pieceLoc[0]);
+				y=Integer.parseInt(pieceLoc[1]);
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public void showBoard(){

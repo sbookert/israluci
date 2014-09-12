@@ -15,11 +15,16 @@ public class UserInterface {
 	private boolean winner=false;
 	
 	public Piece askWhereToPutPiece(){
+		// If player already won then exit app
 		if(winner)
 			return null;
 		
+		// getUserInput: verifyUserResponseFormat and setRowCol
 		getUserInput();
 
+		/* We know whose turn it is and
+		 * we have verified x and y as valid locations
+		 * set the x and y to the appropriate player*/
 		if(turn.equalsIgnoreCase("X")){
 			px.setX(x);
 			px.setY(y);
@@ -102,6 +107,7 @@ public class UserInterface {
 		if(px.isTurn()){
 			// Adds piece to empty slot and displays board
 			b.addPiece(px);
+			// If game over then display winner and set player as winner
 			if(b.GameOver(x-1, y-1)){
 				System.out.println("Player X is the winner!!");
 				winner=true;
@@ -112,6 +118,7 @@ public class UserInterface {
 		if(py.isTurn()){
 			// Adds piece to empty slot and displays board
 			b.addPiece(py);
+			// If game over then display winner and set player as winner
 			if(b.GameOver(x-1, y-1)){
 				System.out.println("Player O is the winner!!");
 				winner=true;

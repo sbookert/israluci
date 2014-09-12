@@ -7,6 +7,7 @@ public class Piece {
 	private static String p;
 	private static int count;
 	
+	//Initialize in constructor
 	public Piece(){
 		x=0;
 		y=0;
@@ -15,6 +16,7 @@ public class Piece {
 		count=0;
 	}
 	
+	//Setters and getters 
 	public int getX() {
 		return x;
 	}
@@ -45,7 +47,6 @@ public class Piece {
 	}
 
 	public static int getCount() {
-		// TODO Auto-generated method stub
 		return count;
 	}
 

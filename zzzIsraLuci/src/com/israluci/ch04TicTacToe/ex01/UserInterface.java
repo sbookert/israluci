@@ -76,9 +76,7 @@ public class UserInterface {
 			if(!correctPlayer){
 				on=(strNum[1].equalsIgnoreCase("on"));
 				if(on)
-					notCorrectFormat=setRowCol(); //returning false will keep getUserInput loop going
-				else
-					notCorrectFormat=true;	
+					notCorrectFormat=setRowCol(); //returning false will keep getUserInput loop going	
 			}else
 				notCorrectFormat=true;
 		}else
@@ -109,7 +107,7 @@ public class UserInterface {
 			b.addPiece(px);
 			// If game over then display winner and set player as winner
 			if(b.GameOver(x-1, y-1)){
-				System.out.println("Player X is the winner!!");
+				System.out.println("Game Over");//Player X is the winner
 				winner=true;
 			}
 			px.setTurn(false);
@@ -120,7 +118,7 @@ public class UserInterface {
 			b.addPiece(py);
 			// If game over then display winner and set player as winner
 			if(b.GameOver(x-1, y-1)){
-				System.out.println("Player O is the winner!!");
+				System.out.println("Game Over");//Player O is the winner
 				winner=true;
 			}
 			py.setTurn(false);

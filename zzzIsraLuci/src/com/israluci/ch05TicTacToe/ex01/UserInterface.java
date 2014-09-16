@@ -107,7 +107,7 @@ public class UserInterface {
 			b.addPiece(px);
 			// If game over then display winner and set player as winner
 			if(b.GameOver(x-1, y-1)){
-				System.out.println("Game Over");//Player X is the winner
+				System.out.println("\nGame Over\n");//Player X is the winner
 				winner=true;
 			}
 			px.setTurn(false);
@@ -118,7 +118,7 @@ public class UserInterface {
 			b.addPiece(py);
 			// If game over then display winner and set player as winner
 			if(b.GameOver(x-1, y-1)){
-				System.out.println("Game Over");//Player O is the winner
+				System.out.println("\nGame Over\n");//Player O is the winner
 				winner=true;
 			}
 			py.setTurn(false);

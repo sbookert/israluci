@@ -15,7 +15,7 @@ public class UserInterface {
 	private boolean winner=false;
 	
 	public Piece askWhereToPutPiece(){
-		// If player already won then exit app
+		// If player already won, then exit the app
 		if(winner)
 			return null;
 		
@@ -46,7 +46,7 @@ public class UserInterface {
 
 	private void getUserInput() {	
 		do{
-			System.out.print("Where do you want to place your piece?" );
+			System.out.print("Where do you want to place your piece? " );
 			System.out.println("(example: 'x on 1,1' or 'exit')");
 			input = s.nextLine().trim();
 			strNum=input.split(" ");

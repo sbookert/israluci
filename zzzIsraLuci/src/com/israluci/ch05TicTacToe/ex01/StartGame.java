@@ -21,9 +21,8 @@ public class StartGame {
 		// Set the player who has the next move.
 		Piece.setP(player);
 		
-		/*Ask user where to add piece
-		 * If null is returned it means user entered exit so we stop app
-		 * otherwise we display the board to show where piece was added*/
+		/*Ask user where to add piece: If null is returned it means user entered exit and we stop
+		 * otherwise we display the board to show where the piece was added*/
 		do{
 			p=ui.askWhereToPutPiece();
 			if(p==null)
@@ -32,6 +31,7 @@ public class StartGame {
 				ui.showBoard();
 		}while(p != null);
 		
+		System.out.println("\nGoodbye.");
 		s.close();
 	}
 }

@@ -41,4 +41,19 @@ Enjoy!
 
 Feedback 1:
 ********************************************************************************************
+You did a very nice job!
+
+I like that your code is cleaner and easy to understand and has the right amount of comments.
+I like how you made row and column dynamic so you can have a larger board.
+
+I would like to suggest that you try to keep concerns separate. This means that if you have 
+a class called UserInterface you should put all user interactions inside there. So there 
+shouldn't be any messages to the user in StartGame class. This text should have also been 
+in the UI class: System.out.println("Y invalid location");
+
+It's also common practice to keep fields like this private: int row=3,col=3,max=row*col;
+
+I don't think this should be static: private static String p;
+
+All in all well done!
 

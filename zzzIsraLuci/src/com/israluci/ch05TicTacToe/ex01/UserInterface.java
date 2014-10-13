@@ -126,4 +126,18 @@ public class UserInterface {
 		
 		System.out.println(b.render());
 	}
+	
+	public String enterPlayer(){
+		
+		String player=null;
+		
+		System.out.println("What player would you like to be? X or O");
+		player=s.nextLine().trim();
+		
+		return player;
+	}
+	
+	public void exitGame(){
+		System.out.println("\nGoodbye.");
+	}
 }

@@ -5,17 +5,18 @@ import java.util.Scanner;
 public class StartGame {
 
 	public static void main(String[] args) {
+
+		final String player1="x", player2="o";
 		UserInterface ui=new UserInterface();
 		Piece p=new Piece();
 		boolean playerPiece;
-		String player;
+		String player=null; 
 		Scanner s = new Scanner(System.in);
 		
 		//Ask user which player they want to be
 		do{
-			System.out.println("What player would you like to be? X or O");
-			player=s.nextLine().trim();
-			playerPiece=player.equalsIgnoreCase("x") || player.equalsIgnoreCase("o");
+			player=ui.enterPlayer();
+			playerPiece=player.equalsIgnoreCase(player1) || player.equalsIgnoreCase(player2);
 		}while(!playerPiece);
 		
 		// Set the player who has the next move.
@@ -31,7 +32,7 @@ public class StartGame {
 				ui.showBoard();
 		}while(p != null);
 		
-		System.out.println("\nGoodbye.");
+		ui.exitGame();
 		s.close();
 	}
 }

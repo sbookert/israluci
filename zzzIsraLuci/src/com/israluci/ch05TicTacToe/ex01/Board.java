@@ -1,7 +1,7 @@
 package com.israluci.ch05TicTacToe.ex01;
 
 public class Board {
-	int row=3,col=3,max=row*col;
+	private int row=3,col=3,max=row*col;
 	private String[][] board= new String[row][col];
 	private String strBracket=" ";	
 	private PieceX px= new PieceX();

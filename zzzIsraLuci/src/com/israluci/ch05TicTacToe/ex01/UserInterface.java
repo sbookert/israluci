@@ -95,7 +95,8 @@ public class UserInterface {
 				x=Integer.parseInt(pieceLoc[0]);
 				y=Integer.parseInt(pieceLoc[1]);
 				return false;
-			}
+			}else
+				System.out.println("Please enter a valid location.\n");
 		}
 		return true;
 	}

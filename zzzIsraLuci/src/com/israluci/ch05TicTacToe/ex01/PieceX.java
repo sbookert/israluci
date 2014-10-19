@@ -7,10 +7,7 @@ public class PieceX extends Piece{
 	}
 	
 	public void setX(int x){
-		if(x > 3)
-			System.out.println("X invalid location");
-		else
-			super.setX(x);
+		super.setX(x);
 	}
 
 }

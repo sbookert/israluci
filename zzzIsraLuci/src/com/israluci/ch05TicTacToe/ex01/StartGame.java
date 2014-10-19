@@ -20,7 +20,7 @@ public class StartGame {
 		}while(!playerPiece);
 		
 		// Set the player who has the next move.
-		Piece.setP(player);
+		p.setP(player);
 		
 		/*Ask user where to add piece: If null is returned it means user entered exit and we stop
 		 * otherwise we display the board to show where the piece was added*/

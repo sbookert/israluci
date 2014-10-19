@@ -58,13 +58,13 @@ public class Board {
 	private void addPieceToBoard() {
 		if(px.isTurn()){
 			board[locX][locY]="X";
-			Piece.setP("o");
+			px.setP("o");
 			Piece.setCount();
 		}
 		
 		if(py.isTurn()){
 			 board[locX][locY]="O";
-			 Piece.setP("x");
+			 py.setP("x");
 			 Piece.setCount();
 		 }
 		

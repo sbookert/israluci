@@ -4,7 +4,7 @@ public class Piece {
 	private int x;
 	private int y;
 	private boolean turn;
-	private String p;
+	private String player;
 	private static int count;
 	
 	//Initialize in constructor
@@ -12,7 +12,7 @@ public class Piece {
 		x=0;
 		y=0;
 		turn=false;
-		p="X";
+		player="";
 		count=0;
 	}
 	
@@ -38,12 +38,12 @@ public class Piece {
 		this.turn = turn;
 	}
 
-	public String getP() {
-		return p;
+	public String getPlayer() {
+		return player;
 	}
 
-	public void setP(String p) {
-		this.p = p;
+	public void setPlayer(String p) {
+		this.player = p;
 	}
 
 	public static int getCount() {

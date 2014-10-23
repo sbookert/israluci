@@ -3,14 +3,15 @@ package com.israluci.ch05TicTacToe.ex01;
 import java.util.Scanner;
 
 public class UserInterface {
-	private Board b = new Board();
+	private Board grid = new Board();
 	private int x=0,y=0,max=3;
 	private String turn="";
-	private PieceX px = new PieceX();
-	private PieceO py = new PieceO();
+	private PieceX playerX = new PieceX();
+	private PieceO playerO = new PieceO();
+	private Piece playerPiece = new Piece();
 	private String input;
-	private Scanner s = new Scanner(System.in);
-	private String[] strNum=new String[3];
+	private Scanner scanUI = new Scanner(System.in);
+	private String[] numberOfSplits=new String[3];
 	private boolean on=true,correctPlayer=true,notCorrectFormat;
 	private boolean winner=false;
 	
@@ -26,18 +27,18 @@ public class UserInterface {
 		 * we have verified x and y as valid locations
 		 * set the x and y to the appropriate player*/
 		if(turn.equalsIgnoreCase("X")){
-			px.setX(x);
-			px.setY(y);
-			px.setTurn(true);
-			return px;
+			playerX.setX(x);
+			playerX.setY(y);
+			playerX.setTurn(true);
+			return playerX;
 		}
 		
 		if(turn.equalsIgnoreCase("O"))
 		{
-			py.setX(x);
-			py.setY(y);
-			py.setTurn(true);
-			return py;
+			playerO.setX(x);
+			playerO.setY(y);
+			playerO.setTurn(true);
+			return playerO;
 		}
 		
 		return null;
@@ -48,10 +49,10 @@ public class UserInterface {
 		do{
 			System.out.print("Where do you want to place your piece? " );
 			System.out.println("(example: 'x on 1,1' or 'exit')");
-			input = s.nextLine().trim();
-			strNum=input.split(" ");
+			input = scanUI.nextLine().trim();
+			numberOfSplits=input.split(" ");
 			
-			turn=strNum[0];
+			turn=numberOfSplits[0];
 			
 			if(turn.equalsIgnoreCase("exit"))
 				break;
@@ -63,19 +64,15 @@ public class UserInterface {
 
 	private void verifyUserResponseFormat() {
 	
-		if(strNum.length==max){
-			/*checkTurn is false when Piece.getP() matches user input
-			 *otherwise if checkTurn is true then user input doesn't match
-			 *next move so the loop needs to be triggered again.
-			 */
-			correctPlayer=(!Piece.getP().equalsIgnoreCase(turn));
+		if(numberOfSplits.length==max){			
+			correctPlayer=(!playerPiece.getPlayer().equalsIgnoreCase(turn));
 			
 			/* If it is the correct player then 
 			 * check if usr input has the word on
 			 * if true then set the row and colmn
-			 * */
+			 * */ 
 			if(!correctPlayer){
-				on=(strNum[1].equalsIgnoreCase("on"));
+				on=(numberOfSplits[1].equalsIgnoreCase("on"));
 				if(on)
 					notCorrectFormat=setRowCol(); //returning false will keep getUserInput loop going	
 			}else
@@ -86,7 +83,7 @@ public class UserInterface {
 		
 	private boolean setRowCol() {
 		//split location string to get row and col
-		String[] pieceLoc=strNum[2].split(",");
+		String[] pieceLoc=numberOfSplits[2].split(",");
 
 		/* Verify location is composed of x and y
 		 * Verify x and y are composed of only digits from 1-3*/
@@ -103,29 +100,29 @@ public class UserInterface {
 
 	public void showBoard(){
 		
-		if(px.isTurn()){
+		if(playerX.isTurn()){
 			// Adds piece to empty slot
-			b.addPiece(px);
+			grid.addPiece(playerX);
 			// If game over then display winner and set player as winner
-			if(b.GameOver(x-1, y-1)){
+			if(grid.GameOver(x-1, y-1)){
 				System.out.println("\nGame Over\n");//Player X is the winner
 				winner=true;
 			}
-			px.setTurn(false);
+			playerX.setTurn(false);
 		}
 		
-		if(py.isTurn()){
+		if(playerO.isTurn()){
 			// Adds piece to empty slot 
-			b.addPiece(py);
+			grid.addPiece(playerO);
 			// If game over then display winner and set player as winner
-			if(b.GameOver(x-1, y-1)){
+			if(grid.GameOver(x-1, y-1)){
 				System.out.println("\nGame Over\n");//Player O is the winner
 				winner=true;
 			}
-			py.setTurn(false);
+			playerO.setTurn(false);
 		}
 		
-		System.out.println(b.render());
+		System.out.println(grid.render());
 	}
 	
 	public String enterPlayer(){
@@ -133,7 +130,7 @@ public class UserInterface {
 		String player=null;
 		
 		System.out.println("What player would you like to be? X or O");
-		player=s.nextLine().trim();
+		player=scanUI.nextLine().trim();
 		
 		return player;
 	}

@@ -22,12 +22,24 @@ public class StartGame {
 		
 		/*Ask user where to add piece: If null is returned it means user entered exit and we stop
 		 * otherwise we display the board to show where the piece was added*/
+		String player;
 		do{
 			playerPiece=pieceUI.askWhereToPutPiece(); //Bad - This is overwriting playerPiece
 			if(playerPiece==null)
 				break;
 			else
-				pieceUI.showBoard();
+				pieceUI.showBoard( );
+			/*
+			if (playerPiece instanceof PieceX)
+				player="X";
+			else
+				player="O";
+			
+			if(player.equalsIgnoreCase(playerType)){
+				pieceUI.showBoard( );
+			}else
+				System.out.println("This is not your turn");
+				*/
 		}while(playerPiece != null);
 		
 		pieceUI.exitGame();

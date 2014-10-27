@@ -14,6 +14,8 @@ public class UserInterface {
 	private String[] numberOfSplits=new String[3];
 	private boolean on=true,correctPlayer=true,notCorrectFormat;
 	private boolean winner=false;
+	String player=null;
+	String player2=null;
 	
 	public Piece askWhereToPutPiece(){
 		// If player already won, then exit the app
@@ -47,36 +49,38 @@ public class UserInterface {
 
 	private void getUserInput() {	
 		do{
+			/* Check that turn is the opposite of the last turn*/
 			System.out.print("Where do you want to place your piece? " );
 			System.out.println("(example: 'x on 1,1' or 'exit')");
 			input = scanUI.nextLine().trim();
 			numberOfSplits=input.split(" ");
 			
 			turn=numberOfSplits[0];
+
+			if (turn.equalsIgnoreCase(player2))
+				break;
 			
-			if(turn.equalsIgnoreCase("exit"))
+			player2=turn;
+			
+			if(turn.equalsIgnoreCase("exit") )
 				break;
 			
 			verifyUserResponseFormat();
 			
-		}while(notCorrectFormat);		
+		}while(notCorrectFormat);	
 	}
 
 	private void verifyUserResponseFormat() {
 	
 		if(numberOfSplits.length==max){			
-			correctPlayer=(!playerPiece.getPlayer().equalsIgnoreCase(turn));
-			
 			/* If it is the correct player then 
 			 * check if usr input has the word on
 			 * if true then set the row and colmn
 			 * */ 
-			if(!correctPlayer){
-				on=(numberOfSplits[1].equalsIgnoreCase("on"));
-				if(on)
-					notCorrectFormat=setRowCol(); //returning false will keep getUserInput loop going	
-			}else
-				notCorrectFormat=true;
+			on=(numberOfSplits[1].equalsIgnoreCase("on"));
+			if(on)
+				notCorrectFormat=setRowCol(); //returning false will keep getUserInput loop going	
+
 		}else
 			notCorrectFormat=true;
 	}
@@ -126,8 +130,6 @@ public class UserInterface {
 	}
 	
 	public String enterPlayer(){
-		
-		String player=null;
 		
 		System.out.println("What player would you like to be? X or O");
 		player=scanUI.nextLine().trim();

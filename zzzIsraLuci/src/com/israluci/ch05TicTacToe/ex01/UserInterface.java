@@ -8,11 +8,10 @@ public class UserInterface {
 	private String turn="";
 	private PieceX playerX = new PieceX();
 	private PieceO playerO = new PieceO();
-	private Piece playerPiece = new Piece();
 	private String input;
 	private Scanner scanUI = new Scanner(System.in);
 	private String[] numberOfSplits=new String[3];
-	private boolean on=true,correctPlayer=true,notCorrectFormat;
+	private boolean on=true,notCorrectFormat;
 	private boolean winner=false;
 	String player=null;
 	String player2=null;
@@ -139,5 +138,14 @@ public class UserInterface {
 	
 	public void exitGame(){
 		System.out.println("\nGoodbye.");
+	}
+
+	public boolean validate(String playerType) {
+		final String playerX="x", playerO="o";
+		boolean correctPlayerType=false;
+		correctPlayerType=playerType.equalsIgnoreCase(playerX) || playerType.equalsIgnoreCase(playerO);
+		if (!correctPlayerType)
+			System.out.println("Please choose correct player, either X or O\n");
+		return correctPlayerType;
 	}
 }

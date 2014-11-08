@@ -57,7 +57,7 @@ public class UserInterface {
 
 			/* Check player entered (firstPlayer) with secondPlayer*/
 			if (turn.equalsIgnoreCase(secondPlayer)){
-				System.out.println("\n"+turn.toUpperCase()+" player played previously.\n");
+				System.out.println("\n"+turn.toUpperCase()+" player played previously.");
 				continue;
 			}
 			
@@ -128,8 +128,9 @@ public class UserInterface {
 			}
 			playerO.setTurn(false);
 		}
-		
+		System.out.println();
 		System.out.println(grid.render());
+		System.out.println();
 	}
 	
 	public String enterPlayer(){

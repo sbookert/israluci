@@ -12,7 +12,6 @@ public class StartGame {
 		//Ask user which player user wants to be
 		do{
 			playerType=pieceUI.enterPlayer();
-			//correctPlayerType=playerType.equalsIgnoreCase(playerX) || playerType.equalsIgnoreCase(playerO);
 			correctPlayerType=pieceUI.validate(playerType);
 		}while(!correctPlayerType);
 		

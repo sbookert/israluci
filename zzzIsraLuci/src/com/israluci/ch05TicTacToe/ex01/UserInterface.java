@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class UserInterface {
 	private Board grid = new Board();
-	private int x=0,y=0,max=3;
+	private int positionX=0,positionY=0,max=3;
 	private String turn="";
 	private PieceX playerX = new PieceX();
 	private PieceO playerO = new PieceO();
@@ -13,8 +13,8 @@ public class UserInterface {
 	private String[] numberOfSplits=new String[3];
 	private boolean on=true,notCorrectFormat;
 	private boolean winner=false;
-	String player=null;
-	String player2=null;
+	String firstPlayer=null;
+	String secondPlayer=null;
 	
 	public Piece askWhereToPutPiece(){
 		// If player already won, then exit the app
@@ -28,16 +28,16 @@ public class UserInterface {
 		 * we have verified x and y as valid locations
 		 * set the x and y to the appropriate player*/
 		if(turn.equalsIgnoreCase("X")){
-			playerX.setX(x);
-			playerX.setY(y);
+			playerX.setX(positionX);
+			playerX.setY(positionY);
 			playerX.setTurn(true);
 			return playerX;
 		}
 		
 		if(turn.equalsIgnoreCase("O"))
 		{
-			playerO.setX(x);
-			playerO.setY(y);
+			playerO.setX(positionX);
+			playerO.setY(positionY);
 			playerO.setTurn(true);
 			return playerO;
 		}
@@ -48,7 +48,6 @@ public class UserInterface {
 
 	private void getUserInput() {	
 		do{
-			/* Check that turn is the opposite of the last turn*/
 			System.out.print("Where do you want to place your piece? " );
 			System.out.println("(example: 'x on 1,1' or 'exit')");
 			input = scanUI.nextLine().trim();
@@ -56,10 +55,13 @@ public class UserInterface {
 			
 			turn=numberOfSplits[0];
 
-			if (turn.equalsIgnoreCase(player2))
-				break;
+			/* Check player entered (firstPlayer) with secondPlayer*/
+			if (turn.equalsIgnoreCase(secondPlayer)){
+				System.out.println("\n"+turn.toUpperCase()+" player played previously.\n");
+				continue;
+			}
 			
-			player2=turn;
+			secondPlayer=turn;
 			
 			if(turn.equalsIgnoreCase("exit") )
 				break;
@@ -92,12 +94,14 @@ public class UserInterface {
 		 * Verify x and y are composed of only digits from 1-3*/
 		if(pieceLoc.length==2){
 			if(pieceLoc[0].matches("[1-3]")&&pieceLoc[1].matches("[1-3]")){
-				x=Integer.parseInt(pieceLoc[0]);
-				y=Integer.parseInt(pieceLoc[1]);
+				positionX=Integer.parseInt(pieceLoc[0]);
+				positionY=Integer.parseInt(pieceLoc[1]);
 				return false;
 			}else
-				System.out.println("Please enter a valid location.\n");
-		}
+				System.out.println("Make sure you choose locations 1-3.\n");
+		}else
+			System.out.println("\nLocation should have x and y components.\n");
+		
 		return true;
 	}
 
@@ -107,7 +111,7 @@ public class UserInterface {
 			// Adds piece to empty slot
 			grid.addPiece(playerX);
 			// If game over then display winner and set player as winner
-			if(grid.GameOver(x-1, y-1)){
+			if(grid.GameOver(positionX-1, positionY-1)){
 				System.out.println("\nGame Over\n");//Player X is the winner
 				winner=true;
 			}
@@ -118,7 +122,7 @@ public class UserInterface {
 			// Adds piece to empty slot 
 			grid.addPiece(playerO);
 			// If game over then display winner and set player as winner
-			if(grid.GameOver(x-1, y-1)){
+			if(grid.GameOver(positionX-1, positionY-1)){
 				System.out.println("\nGame Over\n");//Player O is the winner
 				winner=true;
 			}
@@ -131,9 +135,9 @@ public class UserInterface {
 	public String enterPlayer(){
 		
 		System.out.println("What player would you like to be? X or O");
-		player=scanUI.nextLine().trim();
+		firstPlayer=scanUI.nextLine().trim();
 		
-		return player;
+		return firstPlayer;
 	}
 	
 	public void exitGame(){

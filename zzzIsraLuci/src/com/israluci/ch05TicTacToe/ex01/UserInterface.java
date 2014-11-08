@@ -60,8 +60,7 @@ public class UserInterface {
 				System.out.println("\n"+turn.toUpperCase()+" player played previously.");
 				continue;
 			}
-			
-			secondPlayer=turn;
+				//secondPlayer=turn;
 			
 			if(turn.equalsIgnoreCase("exit") )
 				break;
@@ -93,6 +92,7 @@ public class UserInterface {
 		/* Verify location is composed of x and y
 		 * Verify x and y are composed of only digits from 1-3*/
 		if(pieceLoc.length==2){
+			secondPlayer=turn;
 			if(pieceLoc[0].matches("[1-3]")&&pieceLoc[1].matches("[1-3]")){
 				positionX=Integer.parseInt(pieceLoc[0]);
 				positionY=Integer.parseInt(pieceLoc[1]);
@@ -150,7 +150,7 @@ public class UserInterface {
 		boolean correctPlayerType=false;
 		correctPlayerType=playerType.equalsIgnoreCase(playerX) || playerType.equalsIgnoreCase(playerO);
 		if (!correctPlayerType)
-			System.out.println("Please choose correct player, either X or O\n");
+			System.out.println("Please choose either X or O\n");
 		return correctPlayerType;
 	}
 }

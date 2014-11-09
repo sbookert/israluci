@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class UserInterface {
 	private Board grid = new Board();
-	private int positionX=0,positionY=0,max=3;
+	private int positionX=1,positionY=1,max=3;
 	private String turn="";
 	private PieceX playerX = new PieceX();
 	private PieceO playerO = new PieceO();
@@ -60,7 +60,6 @@ public class UserInterface {
 				System.out.println("\n"+turn.toUpperCase()+" player played previously.");
 				continue;
 			}
-				//secondPlayer=turn;
 			
 			if(turn.equalsIgnoreCase("exit") )
 				break;
@@ -72,14 +71,19 @@ public class UserInterface {
 
 	private void verifyUserResponseFormat() {
 	
+		// if input is not well formatted then loop again
 		if(numberOfSplits.length==max){			
-			/* If it is the correct player then 
-			 * check if usr input has the word on
-			 * if true then set the row and colmn
-			 * */ 
+			 
 			on=(numberOfSplits[1].equalsIgnoreCase("on"));
+			
+			/* check if usr input has the word on
+			 * if true then set the row and colmn
+			 * else loop again
+			 * */
 			if(on)
 				notCorrectFormat=setRowCol(); //returning false will keep getUserInput loop going	
+			else
+				notCorrectFormat=true;
 
 		}else
 			notCorrectFormat=true;

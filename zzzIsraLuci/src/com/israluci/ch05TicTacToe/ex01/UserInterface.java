@@ -13,8 +13,8 @@ public class UserInterface {
 	private String[] numberOfSplits=new String[3];
 	private boolean on=true,notCorrectFormat;
 	private boolean winner=false;
-	String firstPlayer=null;
-	String secondPlayer=null;
+	private String firstPlayer=null;
+	private String secondPlayer=null;
 	
 	public Piece askWhereToPutPiece(){
 		// If player already won, then exit the app

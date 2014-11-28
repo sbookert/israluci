@@ -54,7 +54,7 @@ public class UserInterface {
 			numberOfSplits=input.split(" ");
 			
 			turn=numberOfSplits[0];
-
+			
 			/* Check player entered (firstPlayer) with secondPlayer*/
 			if (turn.equalsIgnoreCase(secondPlayer)){
 				System.out.println("\n"+turn.toUpperCase()+" player played previously.");
@@ -72,7 +72,7 @@ public class UserInterface {
 	private void verifyUserResponseFormat() {
 	
 		// if input is not well formatted then loop again
-		if(numberOfSplits.length==max){			
+		if(numberOfSplits.length==max & validate(turn)){			
 			 
 			on=(numberOfSplits[1].equalsIgnoreCase("on"));
 			
@@ -96,7 +96,7 @@ public class UserInterface {
 		/* Verify location is composed of x and y
 		 * Verify x and y are composed of only digits from 1-3*/
 		if(pieceLoc.length==2){
-			secondPlayer=turn;
+			//secondPlayer=turn;
 			if(pieceLoc[0].matches("[1-3]")&&pieceLoc[1].matches("[1-3]")){
 				positionX=Integer.parseInt(pieceLoc[0]);
 				positionY=Integer.parseInt(pieceLoc[1]);
@@ -104,7 +104,7 @@ public class UserInterface {
 			}else
 				System.out.println("Make sure you choose locations 1-3.\n");
 		}else
-			System.out.println("\nLocation should have x and y components.\n");
+			System.out.println("\nPosition should have x and y location.\n");
 		
 		return true;
 	}
@@ -113,7 +113,10 @@ public class UserInterface {
 		
 		if(playerX.isTurn()){
 			// Adds piece to empty slot
-			grid.addPiece(playerX);
+			if(grid.addPiece(playerX))
+				secondPlayer=turn;
+			else
+				System.out.println("\nPlease choose an empty location.");
 			// If game over then display winner and set player as winner
 			if(grid.GameOver(positionX-1, positionY-1)){
 				System.out.println("\nGame Over\n");//Player X is the winner
@@ -124,10 +127,13 @@ public class UserInterface {
 		
 		if(playerO.isTurn()){
 			// Adds piece to empty slot 
-			grid.addPiece(playerO);
+			if(grid.addPiece(playerO))
+				secondPlayer=turn;
+			else
+				System.out.println("Please choose an empty location.");
 			// If game over then display winner and set player as winner
 			if(grid.GameOver(positionX-1, positionY-1)){
-				System.out.println("\nGame Over\n");//Player O is the winner
+				System.out.println("\nGame Over");//Player O is the winner
 				winner=true;
 			}
 			playerO.setTurn(false);

@@ -112,11 +112,11 @@ public class UserInterface {
 	public void showBoard(){
 		
 		if(playerX.isTurn()){
-			// Adds piece to empty slot
+			// Adds piece to empty slot. 
+			// If empty location was chosen then set turn to next player.
 			if(grid.addPiece(playerX))
 				secondPlayer=turn;
-			else
-				System.out.println("\nPlease choose an empty location.");
+				
 			// If game over then display winner and set player as winner
 			if(grid.GameOver(positionX-1, positionY-1)){
 				System.out.println("\nGame Over\n");//Player X is the winner
@@ -126,11 +126,11 @@ public class UserInterface {
 		}
 		
 		if(playerO.isTurn()){
-			// Adds piece to empty slot 
+			// Adds piece to empty slot
+			// If empty location was chosen then set turn to next player.
 			if(grid.addPiece(playerO))
 				secondPlayer=turn;
-			else
-				System.out.println("Please choose an empty location.");
+			
 			// If game over then display winner and set player as winner
 			if(grid.GameOver(positionX-1, positionY-1)){
 				System.out.println("\nGame Over");//Player O is the winner

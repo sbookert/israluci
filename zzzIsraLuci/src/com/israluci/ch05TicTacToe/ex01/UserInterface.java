@@ -96,7 +96,6 @@ public class UserInterface {
 		/* Verify location is composed of x and y
 		 * Verify x and y are composed of only digits from 1-3*/
 		if(pieceLoc.length==2){
-			//secondPlayer=turn;
 			if(pieceLoc[0].matches("[1-3]")&&pieceLoc[1].matches("[1-3]")){
 				positionX=Integer.parseInt(pieceLoc[0]);
 				positionY=Integer.parseInt(pieceLoc[1]);

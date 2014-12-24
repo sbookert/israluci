@@ -1,0 +1,29 @@
+Exercise specification:
+********************************************************************************************
+
+Let's make our game even better! Our final goal is to be able to play against the computer.
+So the first step along this path is to create a game controller.
+
+Create a class called GameController. This class will have the primary concern of controlling 
+the game. It will both start, end, and decide what needs to happen next. It will need 
+the following methods
+
+	public void start()
+
+	private void end()
+	
+	private void doNext()
+
+Remove any kind of UI functionality from the main method and put it inside the UserInteface class.
+All that should be in the main method is new GameController().start();
+
+If you feel classes or methods are missing add them!
+
+Add the classes to package: com.israluci.ch05TicTacToe.ex02
+
+Enjoy!
+
+Feedback 1:
+********************************************************************************************
+
+

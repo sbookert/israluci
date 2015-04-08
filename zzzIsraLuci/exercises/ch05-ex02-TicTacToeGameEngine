@@ -26,4 +26,17 @@ Enjoy!
 Feedback 1:
 ********************************************************************************************
 
+********************************************************************************************
+Question:
+
+It seems this is more of a design exercise. But I am still trying to dissect this paragraph:
+
+Remove any kind of UI functionality from the main method and put it inside the UserInteface class.
+All that should be in the main method is new GameController().start();
+
+When you said main method, are you referring to StartGame class main method?
+Also this is the first time I see new GameController().start(); If I break it down means creating an object
+and then calling start method but it still throws me off.
+
+Can you please explain or can you point me to seciton of the chapter I should be focusing on?
 

@@ -39,4 +39,5 @@ Also this is the first time I see new GameController().start(); If I break it do
 and then calling start method but it still throws me off.
 
 Can you please explain or can you point me to seciton of the chapter I should be focusing on?
-
+answer: you are right, this is more about design and learning the importance of objects in object oriented design. here's a tip. in your method call the start method, then have a 
+while loop like this: while(controller.donext()){} then when loop exits call the end method.

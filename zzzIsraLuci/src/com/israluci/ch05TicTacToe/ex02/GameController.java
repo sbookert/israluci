@@ -1,10 +1,28 @@
 package com.israluci.ch05TicTacToe.ex02;
 
 public class GameController {
-	public void start(){};
-
-	private void end(){};
+	private UserInterface pieceUI=new UserInterface();
+	private Piece playerPiece=new Piece();
 	
-	private void doNext(){};
+	public void start(){
+		doNext();	
+		end();
+	};
+
+	private void end(){
+		pieceUI.exitGame();		
+	};
+	
+	private void doNext(){
+		//Ask user where to add piece: If null is returned it means user entered exit and we stop
+		//otherwise we display the board to show where the piece was added
+		do{
+			playerPiece=pieceUI.askWhereToPutPiece(); 
+			if(playerPiece==null)
+				break;
+			else
+				pieceUI.showBoard( );
+		}while(playerPiece != null);		
+	};
 
 }

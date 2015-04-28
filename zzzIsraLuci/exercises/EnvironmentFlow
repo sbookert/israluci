@@ -1,0 +1,13 @@
+My Environment/Eclipse flow
+To start working:
+* Fetch
+* Pull changes from upstream into current branch (master)
+* Create branch from local master to start working
+
+When finished:
+* select/point to local master
+* click branch
+* right click branch
+* select merge
+* commit
+* push changes

@@ -12,13 +12,14 @@ public class UserInterface {
 	private Scanner scanUI = new Scanner(System.in);
 	private String[] numberOfSplits=new String[3];
 	private boolean on=true,notCorrectFormat;
-	private boolean winner=false;
-	private String firstPlayer=null;
-	private String secondPlayer=null;
+	private boolean winner=false;	
+	private String previousPlayer=null;
 	
 	public Piece askWhereToPutPiece(){
 		if (turn.equalsIgnoreCase(""))
 			System.out.println("Let's get this party started!!");
+		
+		//System.out.println("turn: "+turn + "prev player" + previousPlayer);
 		// If player already won, then exit the app
 		if(winner)
 			return null;
@@ -33,6 +34,7 @@ public class UserInterface {
 	}
 
 	private Piece setUserPosition() {
+		//current turn for any player is set to false
 		if(turn.equalsIgnoreCase("X")){
 			playerX.setX(positionX);
 			playerX.setY(positionY);
@@ -56,12 +58,12 @@ public class UserInterface {
 			System.out.print("Where do you want to place your piece? " );
 			System.out.println("(example: 'x on 1,1' or 'exit')");
 			input = scanUI.nextLine().trim();
-			numberOfSplits=input.split(" ");
+			numberOfSplits=input.split(" "); // string array: player on x,y
 			
 			turn=numberOfSplits[0];
 			
-			/* Check player entered (firstPlayer) with secondPlayer*/
-			if (turn.equalsIgnoreCase(secondPlayer)){
+			/* Check player entered turn(firstPlayer) with secondPlayer*/
+			if (turn.equalsIgnoreCase(previousPlayer)){
 				System.out.println("\n"+turn.toUpperCase()+" player played previously.");
 				continue;
 			}
@@ -119,7 +121,7 @@ public class UserInterface {
 			// Adds piece to empty slot. 
 			// If empty location was chosen then set turn to next player.
 			if(grid.addPiece(playerX))
-				secondPlayer=turn;
+				previousPlayer=turn;
 				
 			// If game over then display winner and set player as winner
 			if(grid.GameOver(positionX-1, positionY-1)){
@@ -133,7 +135,7 @@ public class UserInterface {
 			// Adds piece to empty slot
 			// If empty location was chosen then set turn to next player.
 			if(grid.addPiece(playerO))
-				secondPlayer=turn;
+				previousPlayer=turn;
 			
 			// If game over then display winner and set player as winner
 			if(grid.GameOver(positionX-1, positionY-1)){
@@ -145,15 +147,7 @@ public class UserInterface {
 		System.out.println();
 		System.out.println(grid.render());
 		System.out.println();
-	}
-	
-	public String enterPlayer(){
-		
-		System.out.println("What player would you like to be? X or O");
-		firstPlayer=scanUI.nextLine().trim();
-		
-		return firstPlayer;
-	}
+	}	
 	
 	public void exitGame(){
 		System.out.println("\nGoodbye.");

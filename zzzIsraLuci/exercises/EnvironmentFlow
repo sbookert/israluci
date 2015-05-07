@@ -16,3 +16,8 @@ Note:
 * when opening eclipse make sure there is a branch to work on.
 * in case user forgot to create branch then we have to work, commit and push local master.
 * in case we comitted work to master and there are no conflicts, just push local master.
+
+Shortcuts
+
+Eclipse
+* Run as application: If app is cached, to run new build just right click package > run as > application

@@ -20,4 +20,12 @@ Note:
 Shortcuts
 
 Eclipse
+Running App
 * Run as application: If app is cached, to run new build just right click package > run as > application
+
+Setup
+
+Clean Start
+* right click , delete from Package Explorer
+* right click, delete from Git Repositories pane view
+

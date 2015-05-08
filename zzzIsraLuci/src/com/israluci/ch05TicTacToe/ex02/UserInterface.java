@@ -5,15 +5,12 @@ import java.util.Scanner;
 public class UserInterface {
 	private Board grid = new Board();
 	private int positionX=1,positionY=1,max=3;
-	private String turn="";
 	private PieceX playerX = new PieceX();
 	private PieceO playerO = new PieceO();
-	private String input;
 	private Scanner scanUI = new Scanner(System.in);
-	private String[] numberOfSplits=new String[3];
-	private boolean on=true,notCorrectFormat;
-	private boolean winner=false;	
-	private String previousPlayer=null;
+	private String[] player_on_xy=new String[3];
+	private boolean winner=false,on=true,notCorrectFormat;
+	private String input="",turn="",previousPlayer=null;
 	
 	public Piece askWhereToPutPiece(){
 		if (turn.equalsIgnoreCase(""))
@@ -58,9 +55,9 @@ public class UserInterface {
 			System.out.print("Where do you want to place your piece? " );
 			System.out.println("(example: 'x on 1,1' or 'exit')");
 			input = scanUI.nextLine().trim();
-			numberOfSplits=input.split(" "); // string array: player on x,y
+			player_on_xy=input.split(" "); 
 			
-			turn=numberOfSplits[0];
+			turn=player_on_xy[0];
 			
 			/* Check player entered turn(firstPlayer) with secondPlayer*/
 			if (turn.equalsIgnoreCase(previousPlayer)){
@@ -79,9 +76,9 @@ public class UserInterface {
 	private void verifyUserResponseFormat() {
 	
 		// if input is not well formatted then loop again
-		if(numberOfSplits.length==max & validate(turn)){			
+		if(player_on_xy.length==max & validate(turn)){			
 			 
-			on=(numberOfSplits[1].equalsIgnoreCase("on"));
+			on=(player_on_xy[1].equalsIgnoreCase("on"));
 			
 			/* check if usr input has the word on
 			 * if true then set the row and colmn
@@ -98,7 +95,7 @@ public class UserInterface {
 		
 	private boolean setRowCol() {
 		//split location string to get row and col
-		String[] pieceLoc=numberOfSplits[2].split(",");
+		String[] pieceLoc=player_on_xy[2].split(",");
 
 		/* Verify location is composed of x and y
 		 * Verify x and y are composed of only digits from 1-3*/

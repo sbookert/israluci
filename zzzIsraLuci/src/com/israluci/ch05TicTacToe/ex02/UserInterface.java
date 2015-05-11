@@ -1,5 +1,6 @@
 package com.israluci.ch05TicTacToe.ex02;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -12,6 +13,7 @@ public class UserInterface {
 	private boolean winner=false,on=true,notCorrectFormat;
 	private String input="",turn="",previousPlayer=null;
 	private boolean automate=false;
+	private Random rand = new Random();
 	
 	public Piece askWhereToPutPiece(){
 		if (turn.equalsIgnoreCase(""))
@@ -33,8 +35,20 @@ public class UserInterface {
 		return setUserPosition();		
 	}
 
-	private void automateUser() {
-		System.out.println("1.if user is not winning set rand 2. if user is winning then block user");
+	public int randInt(int min, int max) {	
+	    // nextInt is normally exclusive of the top value,
+	    // so add 1 to make it inclusive
+	    int randomNum = rand.nextInt((max - min) + 1) + min;
+
+	    return randomNum;
+	}
+	
+	private void automateUser() {	
+		System.out.println("My turn");		
+		positionX=randInt(1,3);
+		positionY=randInt(1,3);		
+		
+		System.out.println("x: "+positionX+ "y: "+positionY);
 		automate=false;
 	}
 

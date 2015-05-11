@@ -44,11 +44,17 @@ public class UserInterface {
 	}
 	
 	private void automateUser() {	
-		System.out.println("My turn");		
+		System.out.println("My turn");	
+		if (turn.equalsIgnoreCase("x"))
+			turn="O";
+		else
+			turn="X";
 		positionX=randInt(1,3);
 		positionY=randInt(1,3);		
 		
-		System.out.println("x: "+positionX+ "y: "+positionY);
+		System.out.println("x: "+positionX+ " y: "+positionY);
+		System.out.println("turn: "+turn+ " previousPlayer: "+previousPlayer);
+		
 		automate=false;
 	}
 
@@ -93,7 +99,7 @@ public class UserInterface {
 			verifyUserResponseFormat();
 			
 		}while(notCorrectFormat);	
-		automate=true;
+		automate=true;		
 	}
 
 	private void verifyUserResponseFormat() {

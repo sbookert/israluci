@@ -11,6 +11,7 @@ public class UserInterface {
 	private String[] player_on_xy=new String[3];
 	private boolean winner=false,on=true,notCorrectFormat;
 	private String input="",turn="",previousPlayer=null;
+	private boolean automate=false;
 	
 	public Piece askWhereToPutPiece(){
 		if (turn.equalsIgnoreCase(""))
@@ -22,12 +23,19 @@ public class UserInterface {
 			return null;
 		
 		// getUserInput: verifyUserResponseFormat and setRowCol
-		getUserInput();
-
+		if (automate==false)
+			getUserInput();
+		else
+			automateUser();
 		/* We know whose turn it is and
 		 * we have verified x and y as valid locations
 		 * set the x and y to the appropriate player*/
 		return setUserPosition();		
+	}
+
+	private void automateUser() {
+		System.out.println("1.if user is not winning set rand 2. if user is winning then block user");
+		automate=false;
 	}
 
 	private Piece setUserPosition() {
@@ -71,6 +79,7 @@ public class UserInterface {
 			verifyUserResponseFormat();
 			
 		}while(notCorrectFormat);	
+		automate=true;
 	}
 
 	private void verifyUserResponseFormat() {

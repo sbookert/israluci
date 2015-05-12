@@ -25,10 +25,7 @@ public class UserInterface {
 			return null;
 		
 		// getUserInput: verifyUserResponseFormat and setRowCol
-		if (automate==false)
-			getUserInput();
-		else
-			automateUser();
+		getUserInput();
 		/* We know whose turn it is and
 		 * we have verified x and y as valid locations
 		 * set the x and y to the appropriate player*/
@@ -55,7 +52,7 @@ public class UserInterface {
 		System.out.println("x: "+positionX+ " y: "+positionY);
 		System.out.println("turn: "+turn+ " previousPlayer: "+previousPlayer);
 		
-		automate=false;
+		//automate=false;
 	}
 
 	private Piece setUserPosition() {
@@ -82,10 +79,14 @@ public class UserInterface {
 		do{
 			System.out.print("Where do you want to place your piece? " );
 			System.out.println("(example: 'x on 1,1' or 'exit')");
-			input = scanUI.nextLine().trim();
-			player_on_xy=input.split(" "); 
-			
-			turn=player_on_xy[0];
+			if (automate==false){				
+				input = scanUI.nextLine().trim();
+				player_on_xy=input.split(" "); 				
+				turn=player_on_xy[0];
+				
+			}
+			else
+				automateUser();
 			
 			/* Check player entered turn(firstPlayer) with secondPlayer*/
 			if (turn.equalsIgnoreCase(previousPlayer)){
@@ -96,10 +97,13 @@ public class UserInterface {
 			if(turn.equalsIgnoreCase("exit") )
 				break;
 			
-			verifyUserResponseFormat();
+			if (automate==false){
+				verifyUserResponseFormat();
+				automate=true;
+			}else
+				automate=false;
 			
-		}while(notCorrectFormat);	
-		automate=true;		
+		}while(notCorrectFormat);				
 	}
 
 	private void verifyUserResponseFormat() {

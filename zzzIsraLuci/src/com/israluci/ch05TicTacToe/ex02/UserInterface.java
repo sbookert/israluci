@@ -10,16 +10,16 @@ public class UserInterface {
 	private PieceO playerO = new PieceO();
 	private Scanner scanUI = new Scanner(System.in);
 	private String[] player_on_xy=new String[3];
-	private boolean winner=false,on=true,notCorrectFormat;
+	private boolean winner=false,on=true,notCorrectFormat=true;
 	private String input="",turn="",previousPlayer=null;
 	private boolean automate=false;
 	private Random rand = new Random();
+	private boolean pieceAdded=true;
 	
 	public Piece askWhereToPutPiece(){
 		if (turn.equalsIgnoreCase(""))
 			System.out.println("Let's get this party started!!");
 		
-		//System.out.println("turn: "+turn + "prev player" + previousPlayer);
 		// If player already won, then exit the app
 		if(winner)
 			return null;
@@ -36,23 +36,22 @@ public class UserInterface {
 	    // nextInt is normally exclusive of the top value,
 	    // so add 1 to make it inclusive
 	    int randomNum = rand.nextInt((max - min) + 1) + min;
-
 	    return randomNum;
 	}
 	
-	private void automateUser() {	
-		System.out.println("My turn");	
-		if (turn.equalsIgnoreCase("x"))
-			turn="O";
-		else
-			turn="X";
+	private void automateUser() {
+		// Switch players only if piece was added successfully otw don't swithc players.
+		if(pieceAdded){
+			if (turn.equalsIgnoreCase("x"))
+				turn="O";
+			else
+				turn="X";
+		}
 		positionX=randInt(1,3);
 		positionY=randInt(1,3);		
 		
-		System.out.println("x: "+positionX+ " y: "+positionY);
-		System.out.println("turn: "+turn+ " previousPlayer: "+previousPlayer);
-		
-		//automate=false;
+		System.out.println(turn.toLowerCase() +" on "+positionX+ ","+positionY);
+		System.out.println("previousPlayer: "+previousPlayer);
 	}
 
 	private Piece setUserPosition() {
@@ -91,6 +90,7 @@ public class UserInterface {
 			/* Check player entered turn(firstPlayer) with secondPlayer*/
 			if (turn.equalsIgnoreCase(previousPlayer)){
 				System.out.println("\n"+turn.toUpperCase()+" player played previously.");
+				notCorrectFormat=true; //have user pick another player
 				continue;
 			}
 			
@@ -150,33 +150,52 @@ public class UserInterface {
 		if(playerX.isTurn()){
 			// Adds piece to empty slot. 
 			// If empty location was chosen then set turn to next player.
-			if(grid.addPiece(playerX))
+			if(grid.addPiece(playerX)){
 				previousPlayer=turn;
+				System.out.println();
+				System.out.println(grid.render());
+				System.out.println();
+				pieceAdded=true;
+				playerX.setTurn(false);
+			}
+			else{
+				automate=true;
+				pieceAdded=false;
+				System.out.println("Position chosen by player x was already taken");
+			}
 				
 			// If game over then display winner and set player as winner
 			if(grid.GameOver(positionX-1, positionY-1)){
 				System.out.println("\nGame Over\n");//Player X is the winner
 				winner=true;
 			}
-			playerX.setTurn(false);
 		}
 		
 		if(playerO.isTurn()){
 			// Adds piece to empty slot
 			// If empty location was chosen then set turn to next player.
-			if(grid.addPiece(playerO))
+			if(grid.addPiece(playerO)){
 				previousPlayer=turn;
+				System.out.println();
+				System.out.println(grid.render());
+				System.out.println();
+				playerO.setTurn(false);
+				pieceAdded=true;
+			}
+			else{
+				automate=true;
+				pieceAdded=false;
+				System.out.println("Position chosen by player o was already taken");
+			}
 			
 			// If game over then display winner and set player as winner
 			if(grid.GameOver(positionX-1, positionY-1)){
 				System.out.println("\nGame Over");//Player O is the winner
 				winner=true;
 			}
-			playerO.setTurn(false);
+			
 		}
-		System.out.println();
-		System.out.println(grid.render());
-		System.out.println();
+		
 	}	
 	
 	public void exitGame(){

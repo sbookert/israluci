@@ -40,18 +40,16 @@ public class UserInterface {
 	}
 	
 	private void automateUser() {
-		// Switch players only if piece was added successfully otw don't swithc players.
+		// Switch players only if piece was added successfully otw don't switch players.
 		if(pieceAdded){
+			System.out.println("My turn");
 			if (turn.equalsIgnoreCase("x"))
 				turn="O";
 			else
 				turn="X";
 		}
 		positionX=randInt(1,3);
-		positionY=randInt(1,3);		
-		
-		System.out.println(turn.toLowerCase() +" on "+positionX+ ","+positionY);
-		System.out.println("previousPlayer: "+previousPlayer);
+		positionY=randInt(1,3);					
 	}
 
 	private Piece setUserPosition() {
@@ -76,20 +74,20 @@ public class UserInterface {
 
 	private void getUserInput() {	
 		do{
-			System.out.print("Where do you want to place your piece? " );
-			System.out.println("(example: 'x on 1,1' or 'exit')");
-			if (automate==false){				
+			if (automate==false){
+
+				System.out.print("Where do you want to place your piece? " );
+				System.out.println("(example: 'x on 1,1' or 'exit')");
 				input = scanUI.nextLine().trim();
 				player_on_xy=input.split(" "); 				
-				turn=player_on_xy[0];
-				
+				turn=player_on_xy[0];				
 			}
 			else
 				automateUser();
 			
 			/* Check player entered turn(firstPlayer) with secondPlayer*/
 			if (turn.equalsIgnoreCase(previousPlayer)){
-				System.out.println("\n"+turn.toUpperCase()+" player played previously.");
+				System.out.println("\n"+turn.toUpperCase()+" player played previously.\n");
 				notCorrectFormat=true; //have user pick another player
 				continue;
 			}
@@ -98,8 +96,7 @@ public class UserInterface {
 				break;
 			
 			if (automate==false){
-				verifyUserResponseFormat();
-				automate=true;
+				verifyUserResponseFormat();				
 			}else
 				automate=false;
 			
@@ -136,6 +133,7 @@ public class UserInterface {
 			if(pieceLoc[0].matches("[1-3]")&&pieceLoc[1].matches("[1-3]")){
 				positionX=Integer.parseInt(pieceLoc[0]);
 				positionY=Integer.parseInt(pieceLoc[1]);
+				automate=true; // don't automate unless the user pieces were added properly
 				return false;
 			}else
 				System.out.println("Make sure you choose locations 1-3.\n");
@@ -159,9 +157,10 @@ public class UserInterface {
 				playerX.setTurn(false);
 			}
 			else{
+				//Position chosen by player x was already taken
+				//if automation doesn't add properly then it will hit this code mult times
 				automate=true;
-				pieceAdded=false;
-				System.out.println("Position chosen by player x was already taken");
+				pieceAdded=false;				
 			}
 				
 			// If game over then display winner and set player as winner
@@ -183,9 +182,10 @@ public class UserInterface {
 				pieceAdded=true;
 			}
 			else{
+				//Position chosen by player o was already taken
+				//if automation doesn't add properly then it will hit this code mult times
 				automate=true;
-				pieceAdded=false;
-				System.out.println("Position chosen by player o was already taken");
+				pieceAdded=false;				
 			}
 			
 			// If game over then display winner and set player as winner

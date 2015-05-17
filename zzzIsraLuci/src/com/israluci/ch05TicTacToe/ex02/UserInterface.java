@@ -18,7 +18,7 @@ public class UserInterface {
 	
 	public Piece askWhereToPutPiece(){
 		if (turn.equalsIgnoreCase(""))
-			System.out.println("Let's get this party started!!");
+			System.out.println("Let's get this game started!!");
 		
 		// If player already won, then exit the app
 		if(winner)
@@ -26,9 +26,7 @@ public class UserInterface {
 		
 		// getUserInput: verifyUserResponseFormat and setRowCol
 		getUserInput();
-		/* We know whose turn it is and
-		 * we have verified x and y as valid locations
-		 * set the x and y to the appropriate player*/
+
 		return setUserPosition();		
 	}
 
@@ -54,6 +52,9 @@ public class UserInterface {
 
 	private Piece setUserPosition() {
 		//current turn for any player is set to false
+		/* We know whose turn it is and
+		 * we have verified x and y as valid locations
+		 * set the x and y to the appropriate player*/
 		if(turn.equalsIgnoreCase("X")){
 			playerX.setX(positionX);
 			playerX.setY(positionY);

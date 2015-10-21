@@ -1,0 +1,30 @@
+Exercise specification:
+********************************************************************************************
+
+Let's revisit the power of inheritance. Re-architect your game to use only Piece and TicTacToePiece. 
+Then in Piece add an abstract method with a signature like this: 
+
+/**
+* Returns the shape of the piece represented by a character, for example X and O in the case of
+* tic tac toe.
+**/
+abstract public String getShape();
+
+TicTacToePiece should be a child of Piece.
+
+A good object oriented design means that making enhancements to application is easy. How hard 
+was it to make the change?
+
+Also you should create a branch called ch05-ex03-TicTacToeGame-Abstract-Method and make a pull
+request when you are done!
+
+Enjoy!
+
+Feedback 1:
+********************************************************************************************
+
+
+
+********************************************************************************************
+Your Question:
+

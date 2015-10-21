@@ -25,6 +25,18 @@ Enjoy!
 
 Feedback 1:
 ********************************************************************************************
+The refactored program is much much better. The comments are very useful and the classes
+make it easy to understand the architecture.
+
+I like how you used the methods in the UserInterface class to clearly explain what is happening.
+
+Note however I'd like you think a little bit more about inheritance. For example it's not a good
+idea to hard code a characteristic of a class in it's name. Instead of having Piece, PieceO, PieceX
+I would have used: Piece, TicTacToePiece. Then in Piece I would have added an abstract method
+with a signature like this: abstract public String getShape();
+
+More on this in next exercise.
+
 
 ********************************************************************************************
 Question:
@@ -39,5 +51,6 @@ Also this is the first time I see new GameController().start(); If I break it do
 and then calling start method but it still throws me off.
 
 Can you please explain or can you point me to seciton of the chapter I should be focusing on?
-answer: you are right, this is more about design and learning the importance of objects in object oriented design. here's a tip. in your method call the start method, then have a 
+answer: you are right, this is more about design and learning the importance of objects in object oriented design. 
+here's a tip. in your method call the start method, then have a 
 while loop like this: while(controller.donext()){} then when loop exits call the end method.

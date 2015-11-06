@@ -2,7 +2,7 @@ package com.israluci.ch05TicTacToe.ex03;
 
 public class GameController {
 	private UserInterface pieceUI=new UserInterface();
-	private Piece playerPiece=new Piece();
+	private Piece playerPiece=new TicTacToePiece();
 	
 	public void start(){
 		doNext();	

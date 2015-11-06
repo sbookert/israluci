@@ -1,4 +1,17 @@
 SETUP
+
+New:
+1. JDK
+2. Eclipse Mars 1
+
+Git Repositories
+Delete old clone
+Create new clone
+
+Navigator/Project Explorer
+create new proj
+link proj to git clone dir
+
 My Environment/Eclipse flow
 To start working:
 * Fetch

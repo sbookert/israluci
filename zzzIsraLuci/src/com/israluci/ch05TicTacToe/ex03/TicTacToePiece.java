@@ -5,7 +5,7 @@ public class TicTacToePiece extends Piece{
 	@Override
 	public String getShape() {
 		// TODO Auto-generated method stub
-		return null;
+		return super.getPlayer();
 	}
 
 }

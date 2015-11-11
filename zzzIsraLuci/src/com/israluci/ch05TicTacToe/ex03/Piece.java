@@ -20,7 +20,7 @@ public abstract class Piece {
 	* Returns the shape of the piece represented by a character, for example X and O in the case of
 	* tic tac toe.
 	**/
-	abstract public String getShape();
+	abstract public String getShape();;
 	
 	//Setters and getters 
 	public int getX() {

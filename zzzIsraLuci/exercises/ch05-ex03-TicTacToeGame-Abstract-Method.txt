@@ -13,7 +13,7 @@ abstract public String getShape();
 TicTacToePiece should be a child of Piece.
 
 A good object oriented design means that making enhancements to application is easy. How hard 
-was it to make the change?
+was it to make this change to your existing program?
 
 Also you should create a branch called ch05-ex03-TicTacToeGame-Abstract-Method and make a pull
 request when you are done!

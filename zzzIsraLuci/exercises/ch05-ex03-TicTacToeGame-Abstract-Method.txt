@@ -23,7 +23,8 @@ Enjoy!
 Feedback 1:
 ********************************************************************************************
 
-
+Well done! Just a tip, I would have used a method in the abstract class like this: setPosition(int x, int y)
+makes it a little easier, but no worries. This is one of your first programs so no sweat.
 
 ********************************************************************************************
 Your Question:

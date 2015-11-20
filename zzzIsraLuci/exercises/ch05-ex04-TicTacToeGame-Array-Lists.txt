@@ -1,0 +1,25 @@
+Exercise specification:
+********************************************************************************************
+
+Let's work with one of the most often used data structures in Java, namely the ArrayList.
+
+Add a feature to your game that asks the user if they want to play another game. So every
+time a user plays the result of the game gets added to the array list. The result should 
+say who won, and if no one one who lost. If the user says play another game, then play
+another game and add the result to the list. If the user says they don't want to play anymore
+iterate over the list of game results and present the user with the number of times X one won,
+The number of times O won, and the number of times there was a draw.
+
+Also you should create a branch called ch05-ex04-TicTacToeGame-ArrayLists and make a pull
+request when you are done!
+
+Enjoy!
+
+Feedback 1:
+********************************************************************************************
+
+
+
+********************************************************************************************
+Your Question:
+

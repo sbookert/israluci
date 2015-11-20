@@ -4,8 +4,8 @@ public class Board {
 	private int row=3,col=3,max=row*col;
 	private String[][] board= new String[row][col];
 	private String boardBracket=" ";	
-	private PieceX pieceX= new PieceX();
-	private PieceO pieceO= new PieceO();
+	private TicTacToePiece pieceX= new TicTacToePiece();
+	private TicTacToePiece pieceO= new TicTacToePiece();
 	private int locationX=0, locationY=0;
 	
 	public Board(){
@@ -35,11 +35,12 @@ public class Board {
 	public boolean addPiece(Piece userPiece){
 		locationX = userPiece.getX()-1;
 		locationY = userPiece.getY()-1;
-
-	    if (userPiece instanceof PieceX)
-	    	pieceX = (PieceX)userPiece;
+		String shape=userPiece.getShape().toLowerCase();
+		
+	    if (shape.equals("x"))
+	    	pieceX = (TicTacToePiece)userPiece;
 	    else
-	    	pieceO = (PieceO)userPiece;
+	    	pieceO = (TicTacToePiece)userPiece;
 			
 		if ((locationX >= row || locationX < 0) || (locationY >= col || locationY < 0)){
 			return false;

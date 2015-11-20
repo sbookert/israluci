@@ -1,6 +1,6 @@
 package com.israluci.ch05TicTacToe.ex03;
 
-public class PieceX extends Piece{
+public class PieceX extends TicTacToePiece{
 	
 	public PieceX(){
 		super();

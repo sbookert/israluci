@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class UserInterface {
 	private Board grid = new Board();
 	private int positionX=1,positionY=1,max=3;
-	private PieceX playerX = new PieceX();
-	private PieceO playerO = new PieceO();
+	private TicTacToePiece playerX = new TicTacToePiece();
+	private TicTacToePiece playerO = new TicTacToePiece();
 	private Scanner scanUI = new Scanner(System.in);
 	private String[] player_on_xy=new String[3];
 	private boolean winner=false,on=true,notCorrectFormat=true;
@@ -59,6 +59,7 @@ public class UserInterface {
 			playerX.setX(positionX);
 			playerX.setY(positionY);
 			playerX.setTurn(true);
+			playerX.setPlayer("X");
 			return playerX;
 		}
 		
@@ -66,6 +67,7 @@ public class UserInterface {
 		{
 			playerO.setX(positionX);
 			playerO.setY(positionY);
+			playerO.setPlayer("O");
 			playerO.setTurn(true);
 			return playerO;
 		}

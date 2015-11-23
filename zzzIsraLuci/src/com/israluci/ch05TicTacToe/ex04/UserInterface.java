@@ -10,19 +10,36 @@ public class UserInterface {
 	private TicTacToePiece playerO = new TicTacToePiece();
 	private Scanner scanUI = new Scanner(System.in);
 	private String[] player_on_xy=new String[3];
-	private boolean winner=false,on=true,notCorrectFormat=true;
-	private String input="",turn="",previousPlayer=null;
-	private boolean automate=false;
+	private boolean winner=false,on=true,notCorrectFormat=true,automate=false, pieceAdded=true;
+	private String input="",turn="",previousPlayer=null,answer="No";
 	private Random rand = new Random();
-	private boolean pieceAdded=true;
 	
 	public Piece askWhereToPutPiece(){
-		if (turn.equalsIgnoreCase(""))
-			System.out.println("Let's get this game started!!");
 		
 		// If player already won, then exit the app
-		if(winner)
-			return null;
+		if(winner){
+			System.out.println("Winner: " + previousPlayer.toUpperCase() + "player.");
+
+			System.out.print("Would you like to play again? " );
+			answer = scanUI.nextLine().trim();
+			// Reset to start new game.
+			if (!answer.equalsIgnoreCase("Yes")){
+				return null;
+			}else {
+				winner=false; on=true;notCorrectFormat=true;
+				input="";
+				turn="";
+				previousPlayer=null;
+				automate=false;
+				pieceAdded=true;
+				grid = new Board();
+			    playerX = new TicTacToePiece();
+				playerO = new TicTacToePiece();
+			}
+		}
+		
+		if (turn.equalsIgnoreCase(""))
+			System.out.println("Let's get this game started!!");
 		
 		// getUserInput: verifyUserResponseFormat and setRowCol
 		getUserInput();

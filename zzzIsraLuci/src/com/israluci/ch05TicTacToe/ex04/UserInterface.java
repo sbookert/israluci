@@ -141,7 +141,9 @@ public class UserInterface {
 				verifyUserResponseFormat();				
 			}else{
 				//turn off the autoplayer, give the user back the game.
+				//once auto user has played, set flag to false to give regular user a turn.
 				autoPlayer=false;
+				autoUserNotAdded=false;
 			}
 			
 		}while(notCorrectFormat);				

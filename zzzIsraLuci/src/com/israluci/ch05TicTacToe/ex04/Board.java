@@ -15,6 +15,10 @@ public class Board {
 				board[i][j]=boardBracket;
 	}
 	
+	public String returnPosition(int x,int y){
+		return board[x-1][y-1];
+	}
+	
 	public String render(){	
 		 String boardUI="";
 		 

@@ -172,27 +172,34 @@ public class UserInterface {
 			notCorrectFormat=true;
 	}
 		
-	private boolean setRowCol() {
-		//split location string to get row and col
+	private boolean setRowCol() {// length, validLocationRange, emptyPosition, 
+		//split apart row and col
 		String[] pieceLoc=player_on_xy[2].split(",");
-		int x=Integer.parseInt(pieceLoc[0]);
-		int y=Integer.parseInt(pieceLoc[1]);
 		
-		if( grid.returnPosition(x,y).equals(" ") ){
-		/* Verify location is composed of x and y
-		 * Verify x and y are composed of only digits from 1-3*/
-			if(pieceLoc.length==2){
-				if(pieceLoc[0].matches("[1-3]")&&pieceLoc[1].matches("[1-3]")){
-					positionX=x;
-					positionY=y;
-					autoPlayer=true; // don't automate unless the user pieces were added properly
-					return false;
+		// To avoid exceptions:
+		// Verify location is composed of 2 numbers, x and y
+		// Verify x and y are composed of only digits from 1-3
+		// Verify position is empty and not already taken.
+		if(pieceLoc.length==2){
+			String x=pieceLoc[0];
+			String y=pieceLoc[1];		
+
+				if(x.matches("[1-3]")&&y.matches("[1-3]")){
+					int numX=Integer.parseInt(x);
+					int numY=Integer.parseInt(y);
+					
+						if( grid.returnPosition(numX,numY).equals(" ") ){
+							positionX=numX;
+							positionY=numY;
+							autoPlayer=true; // don't automate unless the user pieces were added properly
+							return false;
+						}else 
+							System.out.println("Location is taken");
 				}else
 					System.out.println("Make sure you choose locations 1-3.\n");
-			}else
-				System.out.println("\nPosition should have x and y location.\n");
-		}else 
-			System.out.println("Location is taken");
+			
+		}else
+			System.out.println("\nPosition should have x and y location.\n");
 		return true;
 	}
 

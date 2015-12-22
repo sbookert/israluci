@@ -120,7 +120,7 @@ public class UserInterface {
 			}
 				
 			if (autoPlayer==false || userNotAdded==true){
-				askplayerPosition();							
+				askPlayerPosition();							
 			}
 			
 			if (autoPlayer==true || autoUserNotAdded==true)
@@ -147,7 +147,7 @@ public class UserInterface {
 		}while(notCorrectFormat);				
 	}
 
-	private void askplayerPosition() {
+	private void askPlayerPosition() {
 		System.out.print("Where do you want to place your piece? " );
 		System.out.println("(example: 'x on 1,1' or 'exit')");	
 		input = scanUI.nextLine().trim();

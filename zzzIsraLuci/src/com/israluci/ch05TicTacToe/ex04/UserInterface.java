@@ -52,7 +52,7 @@ public class UserInterface {
 
 	private void firstTimePlayingPrompt() {
 		if (turn.equalsIgnoreCase("")){
-			System.out.println("Let's get this game started!!");
+			System.out.print("Let's get this game started!!");
 		}		
 	}
 
@@ -80,7 +80,8 @@ public class UserInterface {
 		}
 		positionX=randInt(1,3);
 		positionY=randInt(1,3);		
-		System.out.println("I choose position: "+positionX+"," + positionY);
+		//If the automated user can't find a spot, it could take a few tries
+		System.out.println("Looking for an empty spot.");
 	}
 
 	private Piece setUserPosition() {
@@ -128,7 +129,8 @@ public class UserInterface {
 			
 			/* Check player entered turn(firstPlayer) with secondPlayer*/
 			if (turn.equalsIgnoreCase(previousPlayer)){
-				System.out.println("\n"+turn.toUpperCase()+" player played previously.\n");
+				System.out.println();
+				System.out.println(turn.toUpperCase()+" player played previously.\n");
 				//have user pick another player
 				notCorrectFormat=true; 
 				continue;
@@ -150,6 +152,7 @@ public class UserInterface {
 	}
 
 	private void askPlayerPosition() {
+		System.out.println();
 		System.out.print("Where do you want to place your piece? " );
 		System.out.println("(example: 'x on 1,1' or 'exit')");	
 		input = scanUI.nextLine().trim();
@@ -167,11 +170,14 @@ public class UserInterface {
 			// else loop again
 			if(on)
 				notCorrectFormat=setRowCol(); //returning false will keep getUserInput loop going	
-			else
+			else{
 				notCorrectFormat=true;
-
-		}else
+				System.out.println("Please enter the correct format.");
+			}
+		}else{
 			notCorrectFormat=true;
+			System.out.println("\nInvalid format. Please try again.\n");
+		}
 	}
 		
 	private boolean setRowCol() {// length, validLocationRange, emptyPosition, 

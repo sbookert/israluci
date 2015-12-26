@@ -1,5 +1,6 @@
 package com.israluci.ch05TicTacToe.ex04;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,23 +9,23 @@ public class UserInterface {
 	private int positionX=1,positionY=1,max=3;
 	private TicTacToePiece playerX = new TicTacToePiece();
 	private TicTacToePiece playerO = new TicTacToePiece();
-	private Scanner scanUI = new Scanner(System.in);
+	private Scanner readPlayersResponse = new Scanner(System.in);
 	private String[] player_on_xy=new String[3];
 	private boolean winner=false,on=true,notCorrectFormat=true,autoPlayer=false, pieceAdded=true;
-	private String input="",turn="",previousPlayer=null,answer="No";
+	private String input="",turn="",previousPlayer=null,answer="No",turnHasPlayer="";
 	private Random rand = new Random();
 	private boolean autoUserNotAdded=false;
 	private boolean userNotAdded=false;
-	
+	private ArrayList<String> result = new ArrayList<String>(10);
 	
 	public Piece askWhereToPutPiece(){
 		
-		firstTimePlayingPrompt();
+		firstTimePlayingDisplay();
 		
 		// If player already won, then exit the app
 		if(winner){
-			winnerUserPromt();
-			answer = scanUI.nextLine().trim();
+			winnerUserDisplay();
+			answer = readPlayersResponse.nextLine().trim();
 			// Reset to start new game.
 			if (!answer.equalsIgnoreCase("Yes")){
 				return null;
@@ -50,14 +51,19 @@ public class UserInterface {
 		playerO = new TicTacToePiece();
 	}
 
-	private void firstTimePlayingPrompt() {
-		if (turn.equalsIgnoreCase("")){
+	private void firstTimePlayingDisplay() {
+		if (turn.equalsIgnoreCase(turnHasPlayer)){
 			System.out.print("Let's get this game started!!");
 		}		
 	}
 
-	private void winnerUserPromt() {
-		System.out.println("Winner: " + previousPlayer.toUpperCase() + "player.");
+	private void winnerUserDisplay() {
+		result.add(previousPlayer);
+		System.out.println("Winner: " + previousPlayer.toUpperCase() + " player.");
+		if (previousPlayer.toUpperCase()=="X")
+			System.out.println("Loser: Player O");
+		else
+			System.out.println("Loser: Player X");
 		System.out.print("Would you like to play again? " );
 		
 	}
@@ -78,10 +84,10 @@ public class UserInterface {
 			else
 				turn="X";
 		}
+		//If the automated user can't find a spot, it could take a few tries
 		positionX=randInt(1,3);
 		positionY=randInt(1,3);		
-		//If the automated user can't find a spot, it could take a few tries
-		System.out.println("Looking for an empty spot.");
+
 	}
 
 	private Piece setUserPosition() {
@@ -155,7 +161,7 @@ public class UserInterface {
 		System.out.println();
 		System.out.print("Where do you want to place your piece? " );
 		System.out.println("(example: 'x on 1,1' or 'exit')");	
-		input = scanUI.nextLine().trim();
+		input = readPlayersResponse.nextLine().trim();
 		player_on_xy=input.split(" "); 				
 		turn=player_on_xy[0];	
 	}
@@ -235,6 +241,8 @@ public class UserInterface {
 			if(grid.GameOver(positionX-1, positionY-1)){
 				System.out.println("\nGame Over\n");//Player X is the winner
 				winner=true;
+				for(String s : result)
+					System.out.println(s);
 			}
 		}
 		

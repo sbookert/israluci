@@ -7,6 +7,7 @@ public class Board {
 	private TicTacToePiece pieceX= new TicTacToePiece();
 	private TicTacToePiece pieceO= new TicTacToePiece();
 	private int locationX=0, locationY=0;
+	private boolean draw=false;
 	
 	public Board(){
 		//initialize board to brackets [ ]
@@ -63,13 +64,11 @@ public class Board {
 	private void addPieceToBoard() {
 		if(pieceX.isTurn()){
 			board[locationX][locationY]="X";
-			pieceX.setPlayer("o");
 			Piece.setCount();
 		}
 		
 		if(pieceO.isTurn()){
 			 board[locationX][locationY]="O";
-			 pieceO.setPlayer("x");
 			 Piece.setCount();
 		 }
 		
@@ -96,8 +95,10 @@ public class Board {
 			board[1][1] !=" ")
 			return true;
 		
-		if(Piece.getCount() == max)
+		if(Piece.getCount() == max){
+			draw=true;
 			return true;
+		}
 		
 		return false;
 	}

@@ -60,23 +60,7 @@ public class UserInterface {
 	}
 
 	private void winnerUserDisplay() {
-		if(grid.getDraw()==false){
-			if (previousPlayer.toUpperCase().equals(X)){
-				results.setWinner(X);
-				results.setLoser(O);
-				System.out.println("Loser: Player O");
-			}else{
-				results.setWinner(O);
-				results.setLoser(X);
-				System.out.println("Loser: Player X");
-			}
-			System.out.print("Would you like to play again? " );
-		}else{
-			results.setWinner("");
-			results.setLoser("");
-			results.setDraw();
-		}
-		resultList.add(results);
+		System.out.print("Would you like to play again? " );
 	}
 
 	public int randInt(int min, int max) {	
@@ -234,11 +218,7 @@ public class UserInterface {
 			// Adds piece to empty slot. 
 			// If empty location was chosen then set turn to next player.
 			if(grid.addPiece(playerX)){
-				previousPlayer=turn;
-				System.out.println();
-				System.out.println(grid.render());
-				System.out.println();
-				pieceAdded=true;
+				setTurnAndDisplay();
 				playerX.setTurn(false);
 			}
 			else{
@@ -246,56 +226,68 @@ public class UserInterface {
 				//if automation doesn't add properly then it will hit this code mult times
 				autoPlayer=true;
 				pieceAdded=false;				
-			}
-				
-			// If game over then display winner and set player as winner
-			if(grid.GameOver(positionX-1, positionY-1)){
-				System.out.println("\nGame Over\n");//Player X is the winner
-				winner=true;
-				
-				if(grid.getDraw()==true){
-					results.setDraw();
-					System.out.println("It is a draw!!");					
-				}else{
-					//results.setWinner(previousPlayer);
-				}
-			}
+			}				
 		}
 		
 		if(playerO.isTurn()){
 			// Adds piece to empty slot
 			// If empty location was chosen then set turn to next player.
 			if(grid.addPiece(playerO)){
-				previousPlayer=turn;
-				System.out.println();
-				System.out.println(grid.render());
-				System.out.println();
+				setTurnAndDisplay();
 				playerO.setTurn(false);
-				pieceAdded=true;
 			}
 			else{
 				//Position chosen by player o was already taken
 				//if automation doesn't add properly then it will hit this code mult times
 				autoPlayer=true;
 				pieceAdded=false;				
-			}
-			
-			// If game over then display winner and set player as winner
-			if(grid.GameOver(positionX-1, positionY-1)){
-				System.out.println("\nGame Over\n");//Player X is the winner
-				winner=true;
-				
-				if(grid.getDraw()==true){
-					results.setDraw();
-					System.out.println("It is a draw!!");					
-				}else{
-					//results.setWinner(previousPlayer);
-				}
-			}
-			
+			}			
 		}
 		
+		listDisplay();
+		
 	}	
+	private void setTurnAndDisplay(){
+		previousPlayer=turn;
+		System.out.println();
+		System.out.println(grid.render());
+		System.out.println();
+		pieceAdded=true;
+	}
+	
+	private void listDisplay(){
+		// If game over then display winner and set player as winner
+					if(grid.GameOver(positionX-1, positionY-1)){
+						System.out.println("\nGame Over\n");//Player X is the winner
+						winner=true;
+						
+						if(grid.getDraw()==false){
+							if (previousPlayer.toUpperCase().equals(X)){
+								results.setWinner(X);
+								results.setLoser(O);
+								//System.out.println("Winner: Player X");
+								//System.out.println("Loser: Player O");
+							}else{
+								results.setWinner(O);
+								results.setLoser(X);
+								//System.out.println("Winner: Player O");
+								//System.out.println("Loser: Player X");
+							}
+						}else{
+							results.setWinner("");
+							results.setLoser("");
+							results.setDraw();
+						}
+						
+						resultList.add(results);
+						
+						for(Result r: resultList){
+							System.out.println("Winner from list: "+r.getWinner());
+							System.out.println("Loser from list: "+r.getLoser());
+							System.out.println("Draw from list: "+r.getDraw());
+						}
+					}
+	}
 	
 	public void exitGame(){
 		System.out.println("\nGoodbye.");

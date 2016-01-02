@@ -26,7 +26,7 @@ public class Result {
 		return draw;
 	}
 	public void setDraw() {
-		this.draw = draw++;
+		this.draw = draw+1;
 	}
 	
 	

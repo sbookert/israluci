@@ -256,6 +256,11 @@ public class UserInterface {
 	}
 	
 	private void listDisplay(){
+		int timesXWon=0;
+		int timesXLost=0;
+		int timesOWon=0;
+		int timesOLost=0;
+		int drawTimes=0;
 		// If game over then display winner and set player as winner
 					if(grid.GameOver(positionX-1, positionY-1)){
 						System.out.println("\nGame Over\n");//Player X is the winner
@@ -282,10 +287,36 @@ public class UserInterface {
 						resultList.add(results);
 						
 						for(Result r: resultList){
-							System.out.println("Winner from list: "+r.getWinner());
-							System.out.println("Loser from list: "+r.getLoser());
-							System.out.println("Draw from list: "+r.getDraw());
+							if(r.getWinner().equalsIgnoreCase("X")){
+								
+								++timesXWon;
+								
+							}
+							
+							if(r.getLoser().equalsIgnoreCase("X")){
+						
+								++timesXLost;
+								
+							}
+							if(r.getWinner().equalsIgnoreCase("O")){
+								
+								++timesOWon;
+								
+							}
+							
+							if(r.getLoser().equalsIgnoreCase("O")){
+								++timesOLost;
+								
+							}
+							
+							//might have to change to static var
+						    drawTimes = drawTimes+r.getDraw();
 						}
+						System.out.println("X won "+timesXWon+" time(s).");
+						System.out.println("X lost "+timesXLost+" time(s).");
+						System.out.println("O won "+timesOWon+" time(s).");
+						System.out.println("O lost "+timesOLost+" time(s).");
+						System.out.println("There was "+drawTimes+" draw time(s).");
 					}
 	}
 	

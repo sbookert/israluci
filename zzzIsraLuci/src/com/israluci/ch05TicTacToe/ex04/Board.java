@@ -16,6 +16,9 @@ public class Board {
 				board[i][j]=boardBracket;
 	}
 	
+	public boolean getDraw() {
+		return draw;
+	}
 	public String returnPosition(int x,int y){
 		return board[x-1][y-1];
 	}

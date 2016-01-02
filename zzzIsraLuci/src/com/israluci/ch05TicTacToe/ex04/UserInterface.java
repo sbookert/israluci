@@ -17,7 +17,8 @@ public class UserInterface {
 	private Random rand = new Random();
 	private boolean autoUserNotAdded=false;
 	private boolean userNotAdded=false;
-	private ArrayList<String> result = new ArrayList<String>(10);
+	private ArrayList<Result> resultList = new ArrayList<Result>();
+	private Result results = new Result(); 
 	
 	public Piece askWhereToPutPiece(){
 		
@@ -59,14 +60,23 @@ public class UserInterface {
 	}
 
 	private void winnerUserDisplay() {
-		//result.add(previousPlayer);
-		//System.out.println("Winner: " + previousPlayer.toUpperCase() + " player.");
-		if (previousPlayer.toUpperCase().equals(X))
-			System.out.println("Loser: Player O");
-		else
-			System.out.println("Loser: Player X");
-		System.out.print("Would you like to play again? " );
-		
+		if(grid.getDraw()==false){
+			if (previousPlayer.toUpperCase().equals(X)){
+				results.setWinner(X);
+				results.setLoser(O);
+				System.out.println("Loser: Player O");
+			}else{
+				results.setWinner(O);
+				results.setLoser(X);
+				System.out.println("Loser: Player X");
+			}
+			System.out.print("Would you like to play again? " );
+		}else{
+			results.setWinner("");
+			results.setLoser("");
+			results.setDraw();
+		}
+		resultList.add(results);
 	}
 
 	public int randInt(int min, int max) {	
@@ -242,10 +252,13 @@ public class UserInterface {
 			if(grid.GameOver(positionX-1, positionY-1)){
 				System.out.println("\nGame Over\n");//Player X is the winner
 				winner=true;
-				result.add(previousPlayer);
-				//System.out.println("Winner: " + previousPlayer.toUpperCase() + " player.");
-				for(String s : result)
-					System.out.println("Winner: "+s+ " player.");
+				
+				if(grid.getDraw()==true){
+					results.setDraw();
+					System.out.println("It is a draw!!");					
+				}else{
+					//results.setWinner(previousPlayer);
+				}
 			}
 		}
 		
@@ -269,12 +282,15 @@ public class UserInterface {
 			
 			// If game over then display winner and set player as winner
 			if(grid.GameOver(positionX-1, positionY-1)){
-				System.out.println("\nGame Over");//Player O is the winner
+				System.out.println("\nGame Over\n");//Player X is the winner
 				winner=true;
-				result.add(previousPlayer);
-				//System.out.println("Winner: " + previousPlayer.toUpperCase() + " player.");
-				for(String s : result)
-					System.out.println("Winner: "+s+ " player.");
+				
+				if(grid.getDraw()==true){
+					results.setDraw();
+					System.out.println("It is a draw!!");					
+				}else{
+					//results.setWinner(previousPlayer);
+				}
 			}
 			
 		}

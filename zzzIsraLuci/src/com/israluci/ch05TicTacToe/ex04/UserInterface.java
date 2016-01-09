@@ -25,8 +25,10 @@ public class UserInterface {
 		
 		// If player already won, then exit the app
 		if(winner){
-			winnerUserDisplay();
-			answer = readPlayersResponse.nextLine().trim();
+			do{
+				System.out.print("\nWould you like to play again? " );
+				answer = readPlayersResponse.nextLine().trim();
+			}while(!(answer.equalsIgnoreCase(continuePlaying)||answer.equalsIgnoreCase("y")));
 			// Reset to start new game.
 			if (answer.equalsIgnoreCase(continuePlaying)||answer.equalsIgnoreCase("y")){
 				afterWinResetVars();
@@ -270,13 +272,9 @@ public class UserInterface {
 							if (previousPlayer.toUpperCase().equals(X)){
 								results.setWinner(X);
 								results.setLoser(O);
-								//System.out.println("Winner: Player X");
-								//System.out.println("Loser: Player O");
 							}else{
 								results.setWinner(O);
 								results.setLoser(X);
-								//System.out.println("Winner: Player O");
-								//System.out.println("Loser: Player X");
 							}
 						}else{
 							results.setWinner("");
@@ -288,35 +286,28 @@ public class UserInterface {
 						
 						for(Result r: resultList){
 							if(r.getWinner().equalsIgnoreCase("X")){
-								
 								++timesXWon;
-								
 							}
 							
 							if(r.getLoser().equalsIgnoreCase("X")){
-						
 								++timesXLost;
-								
 							}
+							
 							if(r.getWinner().equalsIgnoreCase("O")){
-								
 								++timesOWon;
-								
 							}
 							
 							if(r.getLoser().equalsIgnoreCase("O")){
-								++timesOLost;
-								
+								++timesOLost;	
 							}
-							
-							//might have to change to static var
 						    drawTimes = drawTimes+r.getDraw();
 						}
+						
 						System.out.println("X won "+timesXWon+" time(s).");
 						System.out.println("X lost "+timesXLost+" time(s).");
 						System.out.println("O won "+timesOWon+" time(s).");
 						System.out.println("O lost "+timesOLost+" time(s).");
-						System.out.println("There was "+drawTimes+" draw time(s).");
+						System.out.println("There was "+drawTimes+" draw(s).");
 					}
 	}
 	

@@ -18,7 +18,6 @@ public class UserInterface {
 	private boolean autoUserNotAdded=false;
 	private boolean userNotAdded=false;
 	private ArrayList<Result> resultList = new ArrayList<Result>();
-	private Result results = new Result(); 
 	
 	public Piece askWhereToPutPiece(){
 		
@@ -261,6 +260,7 @@ public class UserInterface {
 		int timesOWon=0;
 		int timesOLost=0;
 		int drawTimes=0;
+		Result results = new Result(); 
 		// If game over then display winner and set player as winner
 					if(grid.GameOver(positionX-1, positionY-1)){
 						System.out.println("\nGame Over\n");//Player X is the winner

@@ -1,0 +1,43 @@
+Let's get this game started!!
+Where do you want to place your piece? (example: 'x on 1,1' or 'exit')
+o on 1,3
+
+[ ][ ][O]
+[ ][ ][ ]
+[ ][ ][ ]
+
+My turn
+
+[ ][ ][O]
+[X][ ][ ]
+[ ][ ][ ]
+
+Where do you want to place your piece? (example: 'x on 1,1' or 'exit')
+x on 2,2
+
+X player played previously.
+
+Where do you want to place your piece? (example: 'x on 1,1' or 'exit')
+o on 3,3
+
+[ ][ ][O]
+[X][ ][ ]
+[ ][ ][O]
+
+My turn
+
+[ ][X][O]
+[X][ ][ ]
+[ ][ ][O]
+
+Where do you want to place your piece? (example: 'x on 1,1' or 'exit')
+o on 2,3
+
+[ ][X][O]
+[X][ ][O]
+[ ][ ][O]
+
+
+Game Over
+
+Goodbye.
